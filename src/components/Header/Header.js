@@ -4,7 +4,7 @@ import useScroll from "@/hooks/useScroll";
 import Link from "next/link";
 import React from "react";
 import { Container, Image } from "react-bootstrap";
-import NavItem from "./NavItem";
+import NavItem from "@/components/Header/NavItem";
 
 const { icons, navItems, social, logo, logo2 } = headerData;
 
@@ -79,7 +79,7 @@ const Header = ({ pageTitle }) => {
                   <Link href="/">
                     <a>
                       <Image
-                        src={pageTitle === "Home Two" ? logo2.src : logo.src}
+                        src={pageTitle === "Home Two" ? logo2 : logo}
                         width={50}
                         alt=""
                       />

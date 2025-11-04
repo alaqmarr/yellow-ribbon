@@ -2,7 +2,7 @@ import destinationsOne from "@/data/destinationsOne";
 import React from "react";
 import { Container } from "react-bootstrap";
 import Masonry from "react-masonry-component";
-import SingleDestination from "../DestinationsOne/SingleDestination";
+import SingleDestination from "@/components/DestinationsOne/SingleDestination";
 
 const DestinationsPage = () => {
   return (

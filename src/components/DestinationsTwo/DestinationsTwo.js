@@ -1,7 +1,7 @@
 import destinationsTwo from "@/data/destinationsTwo";
 import React from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
-import DestinationsTwoSingle from "./DestinationsTwoSingle";
+import DestinationsTwoSingle from "@/components/DestinationsTwo/DestinationsTwoSingle";
 
 const { image, title, tagline, destinations, off } = destinationsTwo;
 
@@ -9,7 +9,7 @@ const DestinationsTwo = () => {
   return (
     <section className="destinations-two">
       <div className="destinations-two-shape animated slideInLeft">
-        <Image src={image.src} alt="" />
+        <Image src={image} alt="" />
       </div>
       <Container>
         <div className="destinations-two__top">

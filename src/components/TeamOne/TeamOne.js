@@ -10,7 +10,7 @@ const TeamOne = () => {
     <section className="team-one">
       <div
         className="team-one-map"
-        style={{ backgroundImage: ` url(${bg.src})` }}
+        style={{ backgroundImage: ` url(${bg})` }}
       ></div>
       <Container>
         <div className="section-title text-center">

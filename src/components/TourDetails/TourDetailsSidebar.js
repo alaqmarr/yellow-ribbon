@@ -163,7 +163,7 @@ const TourDetailsSidebar = () => {
             <li key={id}>
               <div className="tour-details-two__last-minute-image">
                 <Image
-                  src={require(`@/images/resources/${image}`).default.src}
+                  src={`/assets/images/resources/${image}`}
                   alt=""
                 />
               </div>

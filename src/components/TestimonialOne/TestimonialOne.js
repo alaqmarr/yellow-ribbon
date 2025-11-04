@@ -42,15 +42,15 @@ const TestimonialOne = ({ aboutPage = false }) => {
       {aboutPage ? (
         <div
           className="about-page-testimonial-map"
-          style={{ backgroundImage: ` url(${bg.src})` }}
+          style={{ backgroundImage: ` url(${bg})` }}
         ></div>
       ) : (
         <>
           <div className="testimonial-one-shape-2 float-bob-y">
-            <Image src={shape1.src} alt="" />
+            <Image src={shape1} alt="" />
           </div>
           <div className="testimonial-one-shape-3 animated slideInRight">
-            <Image src={shape2.src} alt="" />
+            <Image src={shape2} alt="" />
           </div>
         </>
       )}

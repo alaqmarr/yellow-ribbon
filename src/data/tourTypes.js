@@ -1,5 +1,5 @@
-import bg from "@/images/shapes/tour-types-map.png";
 
+const bg = '/assets/images/shapes/tour-types-map.png';
 const tourTypes = {
   bg,
   tagline: "Find the best tour",

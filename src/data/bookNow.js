@@ -1,4 +1,4 @@
-import bg from "@/images/shapes/book-now-shape.png";
+const bg = '/assets/images/shapes/book-now-shape.png';
 
 const bookNow = {
   bg,

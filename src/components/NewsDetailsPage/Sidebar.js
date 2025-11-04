@@ -30,7 +30,7 @@ const Sidebar = () => {
             <li key={id}>
               <div className="sidebar__post-image">
                 <Image
-                  src={require(`@/images/blog/${image}`).default.src}
+                  src={`/assets/images/blog/${image}`}
                   alt=""
                 />
               </div>

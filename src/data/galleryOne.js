@@ -1,5 +1,4 @@
-import bg from "@/images/shapes/gallery-map.png";
-
+const bg = '/assets/images/shapes/gallery-map.png';
 const galleryOne = {
   bg,
   galleryData: [

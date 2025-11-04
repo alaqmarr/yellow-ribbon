@@ -5,7 +5,7 @@ const SingleGallery = ({ image = "" }) => {
   return (
     <li className="animated fadeInUp">
       <div className="gallery-one__img-box">
-        <Image src={require(`@/images/gallery/${image}`).default.src} alt="" />
+        <Image src={`/assets/images/gallery/${image}`} alt="" />
         <div className="gallery-one__iocn">
           <a href={`@/images/gallery/${image}`}>
             <i className="fab fa-instagram"></i>

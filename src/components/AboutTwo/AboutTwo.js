@@ -12,14 +12,14 @@ const AboutTwo = () => {
     <>
       <section className="about-two">
         <div className="about-two-shape float-bob-y">
-          <Image src={image1.src} alt="" />
+          <Image src={image1} alt="" />
         </div>
         <Container>
           <Row>
             <Col xl={6}>
               <div className="about-two__left">
                 <div className="about-tow__left-img animated slideInLeft">
-                  <Image src={image2.src} alt="" />
+                  <Image src={image2} alt="" />
                   <a
                     style={{ cursor: "pointer" }}
                     onClick={() => setOpen(true)}

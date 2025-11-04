@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import DestinationsDetailsLeft from "./DestinationsDetailsLeft";
-import DestinationsDetailsRight from "./DestinationsDetailsRight";
+import DestinationsDetailsLeft from "@/components/DestinationsDetails/DestinationsDetailsLeft";
+import DestinationsDetailsRight from "@/components/DestinationsDetails/DestinationsDetailsRight";
 
 const DestinationsDetailsPage = () => {
   return (

@@ -2,7 +2,7 @@ import mainSliderData from "@/data/mainSliderData";
 import React from "react";
 import SwiperCore, { Autoplay, EffectFade, Navigation } from "swiper";
 import { Swiper } from "swiper/react";
-import SingleSlide from "./SingleSlide";
+import SingleSlide from "@/components/MainSlider/SingleSlide";
 
 SwiperCore.use([Autoplay, Navigation, EffectFade]);
 

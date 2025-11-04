@@ -24,7 +24,7 @@ const SiteFooter = () => {
                   <div className="footer-widget__about-logo">
                     <Link href="/">
                       <a>
-                        <Image src={logo.src} alt="" width={70} />
+                        <Image src={logo} alt="" width={70} />
                       </a>
                     </Link>
                   </div>

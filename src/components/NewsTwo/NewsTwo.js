@@ -2,7 +2,7 @@ import newsTwo from "@/data/newsTwo";
 import dynamic from "next/dynamic";
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import SingleNewsOne from "../NewsOne/SingleNewsOne";
+import SingleNewsOne from "@/components/NewsOne/SingleNewsOne";
 
 const TinySlider = dynamic(() => import("tiny-slider-react"), { ssr: false });
 

@@ -1,6 +1,6 @@
 import counterOne from "@/data/counterOne";
 import React from "react";
-import VisibilityCountUp from "../VisibilityCountUp/VisibilityCountUp";
+import VisibilityCountUp from "@/components/VisibilityCountUp/VisibilityCountUp";
 
 const CounterOne = () => {
   return (

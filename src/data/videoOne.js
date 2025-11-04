@@ -1,5 +1,5 @@
-import bg from "@/images/backgrounds/main-slider-1-3.jpg";
 
+const bg = '/assets/images/backgrounds/main-slider-1-3.jpg';
 const videoOne = {
   bg,
   videoId: "Get7rqXYrbQ",

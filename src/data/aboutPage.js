@@ -1,4 +1,5 @@
-import image from "@/images/resources/about-page-img.jpg";
+const image = '/assets/images/resources/about-page-img.jpg';
+
 
 const aboutPage = {
   image,

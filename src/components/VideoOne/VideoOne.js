@@ -18,7 +18,7 @@ const VideoOne = () => {
     <>
       <section className="video-one">
         <Jarallax className="video-one-bg" speed={0.2} imgPosition="50% 0%">
-          <JarallaxImage src={bg.src} />
+          <JarallaxImage src={bg} />
         </Jarallax>
         <Container>
           <Row>

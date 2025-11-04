@@ -1,4 +1,4 @@
-import bg from "@/images/shapes/brand-one-shape.png";
+const bg = '/assets/images/shapes/brand-one-shape.png';
 
 const BrandOne = {
   bg,

@@ -9,7 +9,7 @@ const BookNow = () => {
     <section className="book-now">
       <div
         className="book-now-shape"
-        style={{ backgroundImage: ` url(${bg.src})` }}
+        style={{ backgroundImage: ` url(${bg})` }}
       ></div>
       <Container>
         <Row>

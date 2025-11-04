@@ -1,9 +1,9 @@
-import image from "@/images/shapes/destinations-two-shape.png";
+const image = "/assets/images/resources/destinations-two-shape.png";
 
 const destinationsTwo = {
   image,
   tagline: "Our Services",
-  title: "CExplore Our Popular Services",
+  title: "Explore Our Popular Services",
   destinations: [
     {
       id: 1,

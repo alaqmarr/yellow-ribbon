@@ -1,7 +1,7 @@
 import newsPage from "@/data/newsPage";
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import SingleNewsOne from "../NewsOne/SingleNewsOne";
+import SingleNewsOne from "@/components/NewsOne/SingleNewsOne";
 
 const NewsPage = () => {
   return (

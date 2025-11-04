@@ -3,9 +3,9 @@ import Preloader from "@/components/Preloader/Preloader";
 import { useRootContext } from "@/context/context";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
-import MobileMenu from "../MobileMenu/MobileMenu";
-import Search from "../Search/Search";
-import SiteFooter from "../SiteFooter/SiteFooter";
+import MobileMenu from "@/components/MobileMenu/MobileMenu";
+import Search from "@/components/Search/Search";
+import SiteFooter from "@/components/SiteFooter/SiteFooter";
 
 const Layout = ({ children, pageTitle }) => {
   const [loading, setLoading] = useState(true);

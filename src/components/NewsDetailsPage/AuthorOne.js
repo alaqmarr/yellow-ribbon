@@ -7,7 +7,7 @@ const AuthorOne = ({ author = {} }) => {
   return (
     <div className="author-one">
       <div className="author-one__image">
-        <Image src={image.src} alt="" />
+        <Image src={image} alt="" />
       </div>
       <div className="author-one__content">
         <h3>{name}</h3>

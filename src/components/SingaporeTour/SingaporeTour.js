@@ -11,13 +11,13 @@ const SingaporeTour = () => {
         <div className="singapore-tour__left">
           <div
             className="singapore-tour-bg"
-            style={{ backgroundImage: ` url(${bg1.src})` }}
+            style={{ backgroundImage: ` url(${bg1})` }}
           ></div>
         </div>
         <div className="singapore-tour__right">
           <div
             className="singapore-tour-right-shape"
-            style={{ backgroundImage: ` url(${bg2.src})` }}
+            style={{ backgroundImage: ` url(${bg2})` }}
           ></div>
           <div className="singapore-tour__content">
             <h2 className="singapore-tour__title">{title}</h2>

@@ -1,5 +1,5 @@
-import image from "@/images/resources/destinations-details-img-1.jpg";
-import image2 from "@/images/resources/destinations-details__discount-img.jpg";
+const image = '/assets/images/resources/destinations-details-img-1.jpg';
+const image2 = '/assets/images/resources/destinations-details__discount-img.jpg';
 
 const text1 =
   "Lorem ipsum available isn but the majority have suffered alteratin in some or form injected. Lorem Ipsum. Proin gravida nibh vel velit auctor aliqueenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. vulputate cursus a sit amet mauris. Morbi accumsan ipsum veliam nec tellus a odio tincidunt auctor.";

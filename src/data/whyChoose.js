@@ -1,5 +1,7 @@
-import bg from "@/images/backgrounds/why-choose-left-bg.jpg";
-import bg2 from "@/images/shapes/why-choose-right-map.png";
+
+
+const bg = '/assets/images/backgrounds/why-choose-left-bg.jpg';
+const bg2 = '/assets/images/shapes/why-choose-right-map.png';
 
 const whyChoose = {
   bg,

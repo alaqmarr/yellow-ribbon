@@ -47,7 +47,7 @@ const BrandOne = () => {
     <section className="brand-one">
       <div
         className="brand-one-shape"
-        style={{ backgroundImage: `url(${bg.src})` }}
+        style={{ backgroundImage: `url(${bg})` }}
       ></div>
       <Container>
         <Row>
@@ -63,7 +63,7 @@ const BrandOne = () => {
                   {brands.map((brand, index) => (
                     <SwiperSlide key={index}>
                       <Image
-                        src={require(`@/images/brand/${brand}`).default.src}
+                        src={`/assets/images/brand/${brand}`}
                         alt=""
                       />
                     </SwiperSlide>

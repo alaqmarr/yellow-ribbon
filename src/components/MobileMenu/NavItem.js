@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import SubNavItem from "./SubNavItem";
+import SubNavItem from "@/components/MobileMenu/SubNavItem";
 
 const NavItem = ({ item = {} }) => {
   const { pathname } = useRouter();

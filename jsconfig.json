@@ -4,8 +4,8 @@
     "paths": {
       "@/components/*": ["src/components/*"],
       "@/styles/*": ["src/styles/*"],
-      "@/images/*": ["src/assets/images/*"],
-      "@/vendors/*": ["src/assets/vendors/*"],
+      "@/images/*": ["public/assets/images/*"],
+      "@/vendors/*": ["public/assets/vendors/*"],
       "@/context/*": ["src/context/*"],
       "@/hooks/*": ["src/hooks/*"],
       "@/data/*": ["src/data/*"]

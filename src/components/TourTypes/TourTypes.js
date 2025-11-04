@@ -10,7 +10,7 @@ const TourTypes = () => {
       <Container>
         <div
           className="tour-types-map"
-          style={{ backgroundImage: ` url(${bg.src})` }}
+          style={{ backgroundImage: ` url(${bg})` }}
         ></div>
         <div className="section-title text-center">
           <span className="section-title__tagline">{tagline}</span>

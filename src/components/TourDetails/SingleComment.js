@@ -20,7 +20,7 @@ const SingleComment = ({ comment = {} }) => {
       <div className="tour-details__review-comment-top">
         <div className="tour-details__review-comment-top-img">
           <Image
-            src={require(`@/images/resources/${image}`).default.src}
+            src={`/assets/images/resources/${image}`}
             alt=""
           />
         </div>

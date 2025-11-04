@@ -18,10 +18,10 @@ const AboutOne = () => {
   return (
     <section className="about-one">
       <div className="about-one-shape-1 animated slideInLeft">
-        <Image src={shape1.src} alt="" />
+        <Image src={shape1} alt="" />
       </div>
       <div className="about-one-shape-2 float-bob-y">
-        <Image src={shape2.src} alt="" />
+        <Image src={shape2} alt="" />
       </div>
       <Container>
         <Row>
@@ -29,7 +29,7 @@ const AboutOne = () => {
             <div className="about-one__left">
               <div className="about-one__img-box">
                 <div className="about-one__img">
-                  <Image src={about.src} alt="" />
+                  <Image src={about} alt="" />
                 </div>
                 <div className="about-one__call">
                   <div className="about-one__call-icon">

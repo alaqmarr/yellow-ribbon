@@ -1,7 +1,7 @@
 import destinationsOne from "@/data/destinationsOne";
 import React from "react";
 import { Container, Row } from "react-bootstrap";
-import SingleDestination from "./SingleDestination";
+import SingleDestination from "@/components/DestinationsOne/SingleDestination";
 
 const DestinationsOne = () => {
   return (

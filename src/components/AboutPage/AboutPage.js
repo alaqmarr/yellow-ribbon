@@ -21,7 +21,7 @@ const AboutPage = () => {
           <Col xl={6}>
             <div className="about-page__left">
               <div className="about-page__img">
-                <Image src={image.src} alt="" />
+                <Image src={image} alt="" />
               </div>
             </div>
           </Col>

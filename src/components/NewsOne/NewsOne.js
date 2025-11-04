@@ -2,7 +2,7 @@ import newsOne from "@/data/newsOne";
 import Link from "next/link";
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import SingleNewsOne from "./SingleNewsOne";
+import SingleNewsOne from "@/components/NewsOne/SingleNewsOne";
 
 const { tagline, title, newsData } = newsOne;
 
