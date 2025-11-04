@@ -130,7 +130,7 @@ const Terms = () => {
                     You shall indemnify and hold harmless Platform Owner, its affiliates,
                     group companies (as applicable) and their respective officers,
                     directors, agents, and employees, from any claim or demand, or
-                    actions including reasonable attorney's fees, made by any third
+                    actions including reasonable attorney&apos;s fees, made by any third
                     party or penalty imposed due to or arising out of your breach of
                     these Terms of Use, Privacy Policy and other Policies, or your
                     violation of any law, rules or regulations or the rights (including
