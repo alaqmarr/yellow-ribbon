@@ -46,11 +46,11 @@ const MobileMenu = () => {
         <ul className="mobile-nav__contact list-unstyled">
           <li>
             <i className="fa fa-envelope"></i>
-            <a href="mailto:needhelp@packageName__.com">needhelp@tevily.com</a>
+            <a href="mailto:yellowribbontravels@gmail.com">yellowribbontravels@gmail.com</a>
           </li>
           <li>
             <i className="fa fa-phone-alt"></i>
-            <a href="tel:666-888-0000">666 888 0000</a>
+            <a href="tel:+919789905294">+91 97899 05294</a>
           </li>
         </ul>
         <div className="mobile-nav__top">

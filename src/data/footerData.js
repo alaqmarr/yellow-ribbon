@@ -1,4 +1,4 @@
-const logo = '/assets/images/resources/logo-1.png';
+const logo = "/assets/images/resources/logo-1.png";
 const social = [
   { icon: "fa-twitter", link: "" },
   { icon: "fa-facebook-square", link: "" },
@@ -10,7 +10,7 @@ const footerData = {
   logo,
   social,
   year: new Date().getFullYear(),
-  author: "Tevily",
+  author: "YRT",
   about:
     "Welcome to our Trip and Tour Agency. Lorem simply text amet cing elit.",
   icons: [
@@ -40,11 +40,10 @@ const footerData = {
     { id: 5, link: "#", title: "Meet the Team" },
   ],
   explore: [
-    { id: 1, link: "#", title: "Account" },
-    { id: 2, link: "#", title: "Legal" },
-    { id: 3, link: "#", title: "Contact" },
-    { id: 4, link: "#", title: "Affilitate Program" },
-    { id: 5, link: "#", title: "Privacy Policy" },
+    { id: 2, link: "/return-policy", title: "Returns" },
+    { id: 3, link: "/refund-cancellations", title: "Refunds" },
+    { id: 4, link: "/terms-conditions", title: "Terms and Conditions" },
+    { id: 5, link: "/privacy-policy", title: "Privacy Policy" },
   ],
 };
 
