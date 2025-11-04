@@ -9,9 +9,9 @@ const PrivacyPolicy = () => {
                 <h2>Introduction</h2>
                 <p>
                     This Privacy Policy describes how YELLOW RIBBON TRAVELS and its affiliates (collectively
-                    "YELLOW RIBBON TRAVELS", we, our, us) collect, use, share, protect or otherwise process
+                    &quot;YELLOW RIBBON TRAVELS&quot;, we, our, us) collect, use, share, protect or otherwise process
                     your information/personal data through our website https://yellowribbontravels.com
-                    (the "Platform"). Please note that you may be able to browse certain sections of the
+                    (the &quot;Platform&quot;). Please note that you may be able to browse certain sections of the
                     Platform without registering with us. We do not offer any product/service under this
                     Platform outside India and your personal data will primarily be stored and processed in
                     India. By visiting this Platform, providing your information or availing any product/service

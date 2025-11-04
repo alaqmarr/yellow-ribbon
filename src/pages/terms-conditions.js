@@ -20,9 +20,9 @@ const Terms = () => {
                     3(1) of the Information Technology (Intermediaries Guidelines) Rules,
                     2011 that require publishing the rules and regulations, privacy
                     policy and Terms of Use for access or usage of domain name
-                    https://yellowribbontravels.com ("Website"), including the related
+                    https://yellowribbontravels.com (&quot;Website&quot;), including the related
                     mobile site and mobile application (hereinafter referred to as
-                    "Platform").
+                    &quot;Platform&quot;).
                 </p>
 
                 <p>
@@ -30,12 +30,12 @@ const Terms = () => {
                     under the Companies Act, 1956 with its registered office at PNO 10
                     SYNO 113, SECOND FLOOR, SHM HILL VIEW APTS SECUNDERABAD JUPITER
                     COLONY TRIMULGHERRY, Hyderabad, India (hereinafter referred to as
-                    "Platform Owner", "we", "us", "our").
+                    &quot;Platform Owner&quot;, &quot;we&quot;, &quot;us&quot;, &quot;our&quot;).
                 </p>
 
                 <p>
                     Your use of the Platform, services and tools are governed by these
-                    terms and conditions ("Terms of Use") as applicable to the Platform,
+                    terms and conditions (&quot;Terms of Use&quot;) as applicable to the Platform,
                     including the applicable policies which are incorporated herein by
                     way of reference. If you transact on the Platform, you shall be
                     subject to the policies that are applicable to the Platform for such
@@ -56,7 +56,7 @@ const Terms = () => {
 
                 <p>
                     For the purpose of these Terms of Use, wherever the context so
-                    requires "you", "your" or "user" shall mean any natural or legal
+                    requires &quot;you&quot;, &quot;your&quot; or &quot;user&quot; shall mean any natural or legal
                     person who has agreed to become a user/buyer on the Platform.
                 </p>
 
