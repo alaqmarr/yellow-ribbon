@@ -15,12 +15,12 @@ import WhyChoose from "@/components/WhyChoose/WhyChoose";
 import axios from "axios";
 import React from "react";
 
-const Home = ({packages}) => {
+const Home = ({packages, destinations}) => {
   return (
     <Layout pageTitle="Welcome">
       <MainSlider />
       <CounterOne />
-      <DestinationsOne />
+      <DestinationsOne data={destinations} />
       <AboutOne />
       <PopularTours data={packages} />
       {/* <VideoOne /> */}
@@ -35,9 +35,11 @@ const Home = ({packages}) => {
 };
 
 export async function getStaticProps() {
-  const res = await axios.get("https://api.yellowribbontravels.com/api/packages");
+  const packages = await axios.get("https://api.yellowribbontravels.com/api/packages");
+  const destinations = await axios.get("https://api.yellowribbontravels.com/api/destinations");
+
   return {
-    props: { packages: res.data },
+    props: { packages: packages.data, destinations: destinations.data },
     revalidate: 60, // optional: ISR every 1 minute
   };
 }

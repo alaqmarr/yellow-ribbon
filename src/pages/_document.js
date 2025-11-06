@@ -43,7 +43,10 @@ class MyDocument extends Document {
           />
           <link rel="icon" href="favicon.ico" />
           <link rel="manifest" href="manifest.json" />
-          <meta name="description" content="Yellow Ribbon Travels, Your Gateway to Unforgettable Journeys" />
+          <meta
+            name="description"
+            content="Yellow Ribbon Travels, Your Gateway to Unforgettable Journeys"
+          />
 
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link

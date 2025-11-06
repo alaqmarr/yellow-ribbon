@@ -3,7 +3,7 @@ import React from "react";
 import { Container, Row } from "react-bootstrap";
 import SingleDestination from "@/components/DestinationsOne/SingleDestination";
 
-const DestinationsOne = () => {
+const DestinationsOne = ({ data }) => {
   return (
     <section className="destinations-one">
       <Container>
@@ -12,7 +12,7 @@ const DestinationsOne = () => {
           <h2 className="section-title__title">Go Exotic Places</h2>
         </div>
         <Row className="masonary-layout">
-          {destinationsOne.slice(0, 5).map((destination) => (
+          {data.slice(0, 5).map((destination) => (
             <SingleDestination key={destination.id} destination={destination} />
           ))}
         </Row>
