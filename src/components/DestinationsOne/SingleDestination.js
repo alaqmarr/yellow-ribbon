@@ -17,7 +17,7 @@ const SingleDestination = ({ destination = {} }) => {
   } = destination;
 
   return (
-    <Col xl={col} lg={col}>
+    <Col xl={3} lg={3}>
       <div className="destinations-one__single">
         <div className="destinations-one__img">
           <Image src={`${image}`} alt="" />

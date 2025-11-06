@@ -8,7 +8,7 @@ const Destinations = ({ destinations }) => {
   return (
     <Layout pageTitle="Destinations">
       <PageHeader title="Destinations" />
-      <DestinationsPage data={destinations} />
+      <DestinationsPage data={destinations}/>
     </Layout>
   );
 };
