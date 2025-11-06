@@ -2,10 +2,11 @@ import popularToursTwo from "@/data/popularToursTwo";
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import SingleTour from "./SingleTour";
+import axios from "axios";
 
-const { tagline, title, popularTours } = popularToursTwo;
+// get popular tours data
 
-const PopularToursTwo = ({ toursPage = false }) => {
+const PopularToursTwo = ({ toursPage = false, popularTours }) => {
   return (
     <section className="popular-tours-two">
       <Container>

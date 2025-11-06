@@ -44,19 +44,6 @@ const DestinationsTwo = () => {
                 col={3}
               />
             ))}
-            <Col xl={3} lg={3}>
-              <div className="destinations-two__top-single animated fadeInUp">
-                <div className="destinations-two__top-banner">
-                  <p>Up to {off} off</p>
-                  <h2>
-                    Summer <span>hot deals</span>
-                  </h2>
-                  <a href="#" className="thm-btn destinations-two__btn">
-                    View Deals
-                  </a>
-                </div>
-              </div>
-            </Col>
           </Row>
         </div>
       </Container>

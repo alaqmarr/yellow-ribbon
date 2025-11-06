@@ -12,25 +12,33 @@ import TestimonialOne from "@/components/TestimonialOne/TestimonialOne";
 import TourSearch from "@/components/TourSearch/TourSearch";
 import VideoOne from "@/components/VideoOne/VideoOne";
 import WhyChoose from "@/components/WhyChoose/WhyChoose";
+import axios from "axios";
 import React from "react";
 
-const Home = () => {
+const Home = ({packages}) => {
   return (
     <Layout pageTitle="Welcome">
       <MainSlider />
       <CounterOne />
       <DestinationsOne />
       <AboutOne />
-      <PopularTours />
+      <PopularTours data={packages} />
       {/* <VideoOne /> */}
       <DestinationsTwo />
       <BrandOne />
       <TestimonialOne />
-      <GalleryOne />
+      {/* <GalleryOne /> */}
       <WhyChoose />
-      <NewsOne />
+      {/* <NewsOne /> */}
     </Layout>
   );
 };
 
+export async function getStaticProps() {
+  const res = await axios.get("https://api.yellowribbontravels.com/api/packages");
+  return {
+    props: { packages: res.data },
+    revalidate: 60, // optional: ISR every 1 minute
+  };
+}
 export default Home;
