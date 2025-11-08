@@ -7,10 +7,10 @@ export async function getStaticPaths() {
   const res = await fetch(
     "https://api.yellowribbontravels.com/api/destinations"
   );
-  const packages = await res.json();
+  const destinations = await res.json();
 
-  const paths = packages.map((pkg) => ({
-    params: { id: pkg.id.toString() },
+  const paths = destinations.map((dest) => ({
+    params: { id: dest.id.toString() },
   }));
 
   return {
@@ -28,18 +28,18 @@ export async function getStaticProps({ params }) {
     return { notFound: true };
   }
 
-  const packageData = await res.json();
+  const destinationsData = await res.json();
 
   return {
-    props: { packageData },
+    props: { destinationsData },
     revalidate: 60, // ISR every 1 minute
   };
 }
-const DestinationsDetails = () => {
+const DestinationsDetails = ({ destinationsData }) => {
   return (
     <Layout pageTitle="Destinations Details">
       <PageHeader title="Destinations Details" page="Destinations" />
-      <DestinationsDetailsPage />
+      <DestinationsDetailsPage data={destinationsData} />
     </Layout>
   );
 };

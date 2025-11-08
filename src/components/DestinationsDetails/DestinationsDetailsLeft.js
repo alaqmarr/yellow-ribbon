@@ -19,7 +19,7 @@ const DestinationsDetailsLeft = ({ data }) => {
   return (
     <div className="destinations-details__left">
       <div className="destinations-details__img">
-        <Image src={image} alt="" />
+        {image && <Image src={image} alt="" />}
       </div>
       <div className="destinations-details__discover">
         <h3 className="destinations-details__title">{title}</h3>
