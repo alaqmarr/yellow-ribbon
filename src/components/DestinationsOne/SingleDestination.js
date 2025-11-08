@@ -14,6 +14,7 @@ const SingleDestination = ({ destination = {} }) => {
     description,
     faqs,
     tag,
+    id,
   } = destination;
 
   return (
@@ -24,7 +25,7 @@ const SingleDestination = ({ destination = {} }) => {
           <div className="destinations-one__content">
             {title && <p className="destinations-one__sub-title">{title}</p>}
             <h2 className="destinations-one__title">
-              <Link href="/destinations-details">{name}</Link>
+              <Link href={`/destination/${id}`}>{name}</Link>
             </h2>
           </div>
           <div className="destinations-one__button">

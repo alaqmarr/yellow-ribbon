@@ -1,41 +1,85 @@
-import { destinationsDetailsLeft } from "@/data/destinationsDetails";
 import React from "react";
 import { Image } from "react-bootstrap";
 import DestinationsDetailsFaq from "@/components/DestinationsDetails/DestinationsDetailsFaq";
 
-const { image, discoverTitle, texts, overviewTitle, overviews, faqs } =
-  destinationsDetailsLeft;
+const DestinationsDetailsLeft = ({ data }) => {
+  const {
+    image,
+    name,
+    tag,
+    title,
+    description,
+    currency,
+    languageSpoken,
+    visa,
+    country,
+    faqs,
+  } = data;
 
-const DestinationsDetailsLeft = () => {
   return (
     <div className="destinations-details__left">
       <div className="destinations-details__img">
         <Image src={image} alt="" />
       </div>
       <div className="destinations-details__discover">
-        <h3 className="destinations-details__title">{discoverTitle}</h3>
-        {texts.map((text, index) => (
-          <p
-            key={index}
-            className={`destinations-details__discover-text-${index + 1}`}
-          >
-            {text}
-          </p>
-        ))}
+        <h3 className="destinations-details__title">{title}</h3>
+        <p className={`destinations-details__discover-text-${1}`}>
+          {description}
+        </p>
       </div>
       <div className="destinations-details__overview">
-        <h3 className="destinations-details__title">{overviewTitle}</h3>
+        <h3 className="destinations-details__title">{name}</h3>
         <ul className="list-unstyled destinations-details__overview-list">
-          {overviews.map(({ id, left, right }) => (
-            <li key={id}>
+          {country && (
+            <li>
               <div className="destinations-details__overview-left">
-                <p>{left}</p>
+                <p>Country</p>
               </div>
               <div className="destinations-details__overview-right">
-                <p>{right}</p>
+                <p>{country}</p>
               </div>
             </li>
-          ))}
+          )}
+          {visa && (
+            <li>
+              <div className="destinations-details__overview-left">
+                <p>Visa</p>
+              </div>
+              <div className="destinations-details__overview-right">
+                <p>{visa}</p>
+              </div>
+            </li>
+          )}
+          {visa && (
+            <li>
+              <div className="destinations-details__overview-left">
+                <p>Tags</p>
+              </div>
+              <div className="destinations-details__overview-right">
+                <p>{tag}</p>
+              </div>
+            </li>
+          )}
+          {currency && (
+            <li>
+              <div className="destinations-details__overview-left">
+                <p>Currency</p>
+              </div>
+              <div className="destinations-details__overview-right">
+                <p>{currency}</p>
+              </div>
+            </li>
+          )}
+          {languageSpoken && (
+            <li>
+              <div className="destinations-details__overview-left">
+                <p>Language Spoken</p>
+              </div>
+              <div className="destinations-details__overview-right">
+                <p>{languageSpoken}</p>
+              </div>
+            </li>
+          )}
         </ul>
       </div>
       <DestinationsDetailsFaq faqs={faqs} />

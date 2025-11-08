@@ -3,6 +3,14 @@ import React, { useState } from "react";
 const DestinationsDetailsFaq = ({ faqs = [] }) => {
   const [active, setActive] = useState(1);
 
+  if (faqs.length === 0) {
+    return (
+      <div className="destinations-details__faq">
+        <p>No FAQs available.</p>
+      </div>
+    );
+  }
+
   return (
     <div className="destinations-details__faq">
       <div className="accrodion-grp faq-one-accrodion">
