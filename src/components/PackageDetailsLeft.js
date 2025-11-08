@@ -68,7 +68,7 @@ const PackageDetailsLeft = ({ packageData }) => {
               >
                 <div onClick={() => setActive(id)} className="accrodion-title">
                   <h4>
-                    <span>Day {dayNumber}</span> {title || description}
+                    <span>Day {dayNumber}</span> {title || "-"}
                   </h4>
                 </div>
                 <div
@@ -77,6 +77,7 @@ const PackageDetailsLeft = ({ packageData }) => {
                   }`}
                 >
                   <div className="inner">
+                    <p>{description}</p>
                     <ul className="list-unstyled">
                       {features > 0 ? (
                         features.map((list, index) => (
