@@ -80,11 +80,11 @@ const PackageDetailsLeft = ({ packageData }) => {
                     <p>{description}</p>
                     <ul className="list-unstyled">
                       {features > 0 ? (
-                        features.map((list, index) => (
-                          <li key={index}>{list}</li>
+                        features.map((item, index) => (
+                          <li key={index}>{item}</li>
                         ))
                       ) : (
-                        <p>No details available for this day.</p>
+                        <p></p>
                       )}
                     </ul>
                   </div>
