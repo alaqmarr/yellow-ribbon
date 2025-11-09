@@ -1,11 +1,9 @@
 import Layout from "@/components/Layout/Layout";
 import NewsDetailsPage from "@/components/NewsDetailsPage/NewsDetailsPage";
-import PackageDetails from "@/components/Package";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import React from "react";
 
 export async function getStaticPaths() {
-  // Fetch all package IDs from the API
   const res = await fetch("https://api.yellowribbontravels.com/api/blogs");
   const blogs = await res.json();
 
@@ -13,10 +11,7 @@ export async function getStaticPaths() {
     params: { id: blog.id.toString() },
   }));
 
-  return {
-    paths,
-    fallback: "blocking", // allows on-demand ISR for new IDs
-  };
+  return { paths, fallback: "blocking" };
 }
 
 export async function getStaticProps({ params }) {
@@ -24,19 +19,17 @@ export async function getStaticProps({ params }) {
     `https://api.yellowribbontravels.com/api/blogs/${params.id}`
   );
 
-  if (!res.ok) {
-    return { notFound: true };
-  }
+  if (!res.ok) return { notFound: true };
 
   const blogData = await res.json();
 
   return {
     props: { blogData },
-    revalidate: 60, // ISR every 1 minute
+    revalidate: 60, // regenerate every 60 seconds
   };
 }
 
-const TourDetails = ({ blogData }) => {
+const BlogDetails = ({ blogData }) => {
   if (!blogData) return null;
 
   return (
@@ -47,4 +40,4 @@ const TourDetails = ({ blogData }) => {
   );
 };
 
-export default TourDetails;
+export default BlogDetails;

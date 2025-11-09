@@ -1,7 +1,6 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import NewsDetailsLeft from "./NewsDetailsLeft";
-import Sidebar from "@/components/NewsDetailsPage/Sidebar";
 
 const NewsDetailsPage = ({ blogData }) => {
   return (
