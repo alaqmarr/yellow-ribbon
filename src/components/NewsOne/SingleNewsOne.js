@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 import { Image } from "react-bootstrap";
 
 const SingleNewsOne = ({ news = {}, newsTwo = false }) => {
-  const { image, title, author, comments, date } = news;
+  const { thumbnail, title, author, comments, date, id } = news;
 
   return (
     <div
@@ -13,8 +13,8 @@ const SingleNewsOne = ({ news = {}, newsTwo = false }) => {
       style={{ userSelect: newsTwo ? "none" : "unset" }}
     >
       <div className="news-one__img">
-        <Image src={`/assets/images/blog/${image}`} alt="" />
-        <Link href="/news-details">
+        <Image src={`${thumbnail}`} alt="" />
+        <Link href={"/blogs/" + id}>
           <a>
             <span className="news-one__plus"></span>
           </a>
@@ -33,24 +33,16 @@ const SingleNewsOne = ({ news = {}, newsTwo = false }) => {
       <div className="news-one__content">
         <ul className="list-unstyled news-one__meta">
           <li>
-            <Link href="/news-details">
+            <Link href={"/blogs/" + id}>
               <a>
                 <i className="far fa-user-circle"></i>
                 {author}
               </a>
             </Link>
           </li>
-          <li>
-            <Link href="/news-details">
-              <a>
-                <i className="far fa-comments"></i>
-                {comments} Comments
-              </a>
-            </Link>
-          </li>
         </ul>
         <h3 className="news-one__title">
-          <Link href="/news-details">{title}</Link>
+          <Link href={"/blogs/" + id}>{title}</Link>
         </h3>
       </div>
     </div>

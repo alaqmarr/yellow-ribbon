@@ -3,12 +3,12 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import SingleNewsOne from "@/components/NewsOne/SingleNewsOne";
 
-const NewsPage = () => {
+const NewsPage = ({data}) => {
   return (
     <section className="news-one">
       <Container>
         <Row>
-          {newsPage.map((news) => (
+          {data.map((news) => (
             <Col
               xl={4}
               lg={6}

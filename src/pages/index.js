@@ -15,7 +15,7 @@ import WhyChoose from "@/components/WhyChoose/WhyChoose";
 import axios from "axios";
 import React from "react";
 
-const Home = ({packages, destinations}) => {
+const Home = ({ packages, destinations, blogs }) => {
   return (
     <Layout pageTitle="Welcome">
       <MainSlider />
@@ -29,17 +29,28 @@ const Home = ({packages, destinations}) => {
       <TestimonialOne />
       {/* <GalleryOne /> */}
       <WhyChoose />
-      {/* <NewsOne /> */}
+      <NewsOne data={blogs} />
     </Layout>
   );
 };
 
 export async function getStaticProps() {
-  const packages = await axios.get("https://api.yellowribbontravels.com/api/packages");
-  const destinations = await axios.get("https://api.yellowribbontravels.com/api/destinations");
+  const packages = await axios.get(
+    "https://api.yellowribbontravels.com/api/packages"
+  );
+  const destinations = await axios.get(
+    "https://api.yellowribbontravels.com/api/destinations"
+  );
+  const blogs = await axios.get(
+    "https://api.yellowribbontravels.com/api/blogs"
+  );
 
   return {
-    props: { packages: packages.data, destinations: destinations.data },
+    props: {
+      packages: packages.data,
+      destinations: destinations.data,
+      blogs: blogs.data,
+    },
     revalidate: 120, // optional: ISR every 2 minutes
   };
 }
