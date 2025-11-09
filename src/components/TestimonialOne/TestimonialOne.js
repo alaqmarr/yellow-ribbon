@@ -42,7 +42,7 @@ const TestimonialOne = ({ aboutPage = false }) => {
       {aboutPage ? (
         <div
           className="about-page-testimonial-map"
-          style={{ backgroundImage: ` url(https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8dHJhdmVsJTIwaW1hZ2VzfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500)` }}
+          style={{ backgroundImage: ` url(https://plus.unsplash.com/premium_photo-1707793861660-df27742eb771?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fHRyYXZlbCUyMGltYWdlc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500)` }}
         ></div>
       ) : (
         <>
