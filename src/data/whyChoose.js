@@ -6,7 +6,7 @@ const whyChoose = {
   bg2,
   toggleText: " Trips \n & tours",
   title: "Why Choose Yellow Ribbon Travels",
-  tagline: "Our benefit lists",
+  tagline: "Why Choose Us",
   description: `🌍✨ From humble beginnings to pioneering a new way to explore the world.
 
 After years of perfecting the art of travel, we’re now introducing an exciting twist – Luxury Travels on a Budget! 🏖️💼`,
