@@ -24,18 +24,6 @@ const VideoTwo = () => {
           <Row>
             <Col xl={12}>
               <div className="video-two__inner">
-                <div className="video-one__video-link">
-                  <a
-                    style={{ cursor: "pointer" }}
-                    onClick={() => setOpen(true)}
-                    className="video-popup"
-                  >
-                    <div className="video-one__video-icon">
-                      <span className="icon-play-button"></span>
-                      <i className="ripple"></i>
-                    </div>
-                  </a>
-                </div>
                 <p className="video-one__tagline">{tagline}</p>
                 <h2 className="video-one__title">
                   {title.split("\n").map((t, i) => (

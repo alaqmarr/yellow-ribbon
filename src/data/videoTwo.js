@@ -5,7 +5,7 @@ const videoTwo = {
   bg,
   videoId: "Get7rqXYrbQ",
   tagline: "Are you ready to travel?",
-  title: "Tevily is a World Leading \n Online Tour Booking Platform",
+  title: "Let's create memories \n with Yellow Ribbon Travels!",
 };
 
 export default videoTwo;

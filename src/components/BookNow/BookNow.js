@@ -20,7 +20,7 @@ const BookNow = () => {
                 <h2>{title}</h2>
               </div>
               <div className="book-now__right">
-                <a href="#" className="thm-btn book-now__btn">
+                <a href="https://wa.me/+919789905294" className="thm-btn book-now__btn">
                   Book tour now
                 </a>
               </div>
