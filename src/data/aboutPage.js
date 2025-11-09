@@ -1,4 +1,4 @@
-const image = '/assets/images/resources/logo-1.jpg';
+const image = '/assets/images/resources/logo-1.png';
 
 
 const aboutPage = {
