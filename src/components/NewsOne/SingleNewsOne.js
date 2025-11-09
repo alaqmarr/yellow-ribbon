@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 import { Image } from "react-bootstrap";
 
 const SingleNewsOne = ({ news = {}, newsTwo = false }) => {
-  const { thumbnail, title, author, comments, date, id } = news;
+  const { thumbnail, title, author, comments, date, id , createdAt} = news;
 
   return (
     <div
@@ -21,12 +21,15 @@ const SingleNewsOne = ({ news = {}, newsTwo = false }) => {
         </Link>
         <div className="news-one__date">
           <p>
-            {date.split(" ").map((t, i) => (
-              <Fragment key={i}>
-                <span>{t}</span>
-                <br />
-              </Fragment>
-            ))}
+            {new Date(createdAt)
+              .toLocaleString("en-US", {})
+              .split(",")[0]
+              .split("/")
+              .map((t, i) => (
+                <Fragment key={i}>
+                  <span>{t}</span>
+                </Fragment>
+              ))}
           </p>
         </div>
       </div>
