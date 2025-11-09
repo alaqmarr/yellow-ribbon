@@ -1,11 +1,9 @@
-
 import Link from "next/link";
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import SingleNewsOne from "@/components/NewsOne/SingleNewsOne";
 
-
-const NewsOne = ({data}) => {
+const NewsOne = ({ data }) => {
   return (
     <section className="news-one">
       <Container>
