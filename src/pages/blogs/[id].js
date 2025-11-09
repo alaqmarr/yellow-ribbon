@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout/Layout";
 import NewsDetailsPage from "@/components/NewsDetailsPage/NewsDetailsPage";
 import PackageDetails from "@/components/Package";
+import PageHeader from "@/components/PageHeader/PageHeader";
 import React from "react";
 
 export async function getStaticPaths() {
