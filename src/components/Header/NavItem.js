@@ -10,9 +10,7 @@ const NavItem = ({ navItem = {} }) => {
   const current = pathname === href || subHref.includes(pathname);
 
   return (
-    <>
-      {subNavItems && subNavItems.length > 0 ? (
-        <li className={`dropdown${current ? " current" : ""}`}>
+    <li className={`dropdown${current ? " current" : ""}`}>
           <Link href={href}>
             <a href={href}>{name}</a>
           </Link>
@@ -38,12 +36,6 @@ const NavItem = ({ navItem = {} }) => {
             ))}
           </ul>
         </li>
-      ) : (
-        <Link href={href}>
-          <a href={href}>{name}</a>
-        </Link>
-      )}
-    </>
   );
 };
 
