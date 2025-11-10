@@ -1,0 +1,116 @@
+.galleryContainer {
+  background: linear-gradient(to bottom, #0f172a, #1e293b);
+  min-height: 100vh;
+  padding: 4rem 2rem; /* Generous padding */
+}
+
+.title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 1rem;
+  color: #94a3b8;
+  margin-bottom: 4rem; /* More space */
+  font-weight: 500;
+}
+
+/* --- PROFESSIONAL RESPONSIVE GRID --- */
+
+.imageGrid {
+  display: grid;
+  /*
+    Desktop-first: Start with a responsive grid for large screens.
+    minmax(280px, 1fr) is a robust way to create columns.
+  */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  
+  /* A larger gap for a cleaner, less cluttered look */
+  gap: 1.5rem;
+  
+  max-width: 1800px; /* Set a max-width for ultra-wide monitors */
+  margin: 0 auto;   /* Center the grid */
+}
+
+.gridItem {
+  /* This creates a 1:1 square box. This is consistent. */
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  
+  /* Style the box itself */
+  border-radius: 12px;
+  background-color: rgba(0, 0, 0, 0.2); /* Dark background for letterboxing */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  overflow: hidden; /* Clips the image to the rounded corners */
+  
+  /* Add a subtle hover effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gridItem:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.image {
+  width: 100%;
+  height: 100%; /* Fill the entire grid item */
+  
+  /*
+    This is the key rule:
+    "contain" shows the full image, maintains aspect ratio, and
+    uses the .gridItem background for letterboxing.
+    NO crops, NO stretching.
+  */
+  object-fit: contain;
+  display: block;
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+
+@media (max-width: 768px) {
+  /* Tablet */
+  .galleryContainer {
+    padding: 3rem 1.5rem;
+  }
+  .title {
+    font-size: 2.5rem;
+  }
+  .imageGrid {
+    /* Use a smaller minmax for tablets */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  .gridItem {
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Mobile - This is the key fix */
+  .galleryContainer {
+    padding: 2rem 1rem;
+  }
+  .imageGrid {
+    /*
+      THIS IS THE FIX:
+      We stop using auto-fill and set a clean, 2-column grid.
+      This is not cluttered and provides perfect spacing.
+    */
+    grid-template-columns: 1fr 1fr;
+    
+    /* We ensure there is a gap */
+    gap: 1rem;
+  }
+  
+  /*
+    NOTE: We no longer unset aspect-ratio. We keep the 1:1 boxes
+    for a clean, consistent, professional UI.
+  */
+}
