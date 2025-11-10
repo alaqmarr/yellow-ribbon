@@ -8,6 +8,12 @@ const navItems = [
     href: "/",
     subNavItems: [],
   },
+    {
+    id: 1,
+    name: "Gallery",
+    href: "/gallery",
+    subNavItems: [],
+  },
   {
     id: 2,
     name: "Destinations",
