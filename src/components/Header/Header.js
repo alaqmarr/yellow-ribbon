@@ -45,7 +45,10 @@ const Header = ({ pageTitle }) => {
                   ))}
                 </div>
                 <div className="main-header__top-right-btn-box">
-                  <a href="https://wa.me/919789905294" className="thm-btn main-header__top-right-btn">
+                  <a
+                    href="https://wa.me/919789905294"
+                    className="thm-btn main-header__top-right-btn"
+                  >
                     Plan Your Trip
                   </a>
                 </div>
