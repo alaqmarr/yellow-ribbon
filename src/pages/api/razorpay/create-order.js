@@ -27,7 +27,7 @@ export default async function handler(req, res) {
 
     await db.paymentModel.update({
       where: { id: paymentId },
-      data: { paymentGatewayId: order.id },
+      data: { razorpayPaymentId: order.id },
     });
 
     return res.status(200).json({ orderId: order.id });
