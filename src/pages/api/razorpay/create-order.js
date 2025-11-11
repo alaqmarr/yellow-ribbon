@@ -1,7 +1,6 @@
 import RazorpayPkg from "razorpay";
 import Razorpay from "razorpay";
 import { db } from "lib/db";
-import webhooks from "razorpay/dist/types/webhooks";
 
 const RazorpayInstance = Razorpay || RazorpayPkg.default || RazorpayPkg;
 const rz = new RazorpayInstance({
