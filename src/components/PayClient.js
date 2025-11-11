@@ -1,7 +1,13 @@
+"use client";
+
 import React from "react";
 
 export default function PayClient({ paymentRecord, razorpayKey }) {
   const [loading, setLoading] = React.useState(false);
+  const [qrLoading, setQrLoading] = React.useState(false);
+  const [qrData, setQrData] = React.useState(null);
+  const [paid, setPaid] = React.useState(paymentRecord?.paid || false);
+  const [successInfo, setSuccessInfo] = React.useState(null);
 
   if (!paymentRecord) {
     return (
@@ -18,6 +24,7 @@ export default function PayClient({ paymentRecord, razorpayKey }) {
     );
   }
 
+  // --- Razorpay Checkout ---
   const startPayment = async () => {
     try {
       setLoading(true);
@@ -34,12 +41,7 @@ export default function PayClient({ paymentRecord, razorpayKey }) {
       });
 
       if (!res.ok) throw new Error("Order creation failed");
-      console.log("Create order response:", res);
       const { orderId } = await res.json();
-      if (!res.ok) {
-        const errText = await res.text();
-        throw new Error("Order creation failed: " + errText);
-      }
 
       if (!window.Razorpay) {
         await new Promise((resolve, reject) => {
@@ -78,36 +80,143 @@ export default function PayClient({ paymentRecord, razorpayKey }) {
               }),
             });
             if (!update.ok) throw new Error(await update.text());
-            alert("Payment successful. Thank you!");
-            console.log("Payment update response:", update);
-            window.location.reload();
+
+            setPaid(true);
+            setSuccessInfo({
+              amount: paymentRecord.amount,
+              id: response.razorpay_payment_id,
+              name: paymentRecord.customerName,
+            });
           } catch (err) {
-            console.error(err);
+            console.error("Payment update error:", err);
             alert("Payment succeeded but update failed. Contact support.");
-            console.log("Payment update error:", err);
           }
         },
       };
 
       new window.Razorpay(options).open();
     } catch (err) {
-      console.error(err);
+      console.error("Payment initiation error:", err);
       alert("Could not initiate payment. Try again.");
-      console.log("Payment initiation error:", err);
     } finally {
       setLoading(false);
     }
   };
 
+  // --- Generate QR Payment ---
+  const generateQR = async () => {
+    try {
+      setQrLoading(true);
+      const res = await fetch("/api/razorpay/create-qr", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          paymentId: paymentRecord.id,
+          amount: paymentRecord.amount,
+        }),
+      });
+      if (!res.ok) throw new Error(await res.text());
+      const data = await res.json();
+      setQrData(data);
+    } catch (err) {
+      console.error("QR creation failed:", err);
+      alert("Could not create QR. Try again.");
+    } finally {
+      setQrLoading(false);
+    }
+  };
+
+  // --- Success Screen ---
+  if (paid && successInfo) {
+    return (
+      <div
+        style={{
+          minHeight: "80vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          background: "#f8fafc",
+          fontFamily: "Inter, sans-serif",
+          padding: 20,
+        }}
+      >
+        <div
+          style={{
+            width: 480,
+            background: "#fff",
+            borderRadius: 16,
+            boxShadow: "0 8px 30px rgba(0,0,0,0.1)",
+            textAlign: "center",
+            padding: "40px 24px",
+            animation: "fadeIn 0.6s ease-out",
+          }}
+        >
+          <div
+            style={{
+              width: 100,
+              height: 100,
+              borderRadius: "50%",
+              background: "#dcfce7",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              margin: "0 auto 24px",
+            }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#16a34a"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M20 6L9 17l-5-5" />
+            </svg>
+          </div>
+          <h2 style={{ color: "#065f46", fontSize: 22, marginBottom: 8 }}>
+            Payment Successful
+          </h2>
+          <p style={{ color: "#475569", fontSize: 15, marginBottom: 24 }}>
+            Thank you, {successInfo.name}. Your payment of{" "}
+            <strong>₹{successInfo.amount.toFixed(2)}</strong> has been
+            confirmed.
+          </p>
+          <div
+            style={{
+              background: "#f1f5f9",
+              padding: "10px 16px",
+              borderRadius: 8,
+              color: "#475569",
+              fontSize: 14,
+              marginBottom: 24,
+              display: "inline-block",
+            }}
+          >
+            Transaction ID: {successInfo.id}
+          </div>
+          <p style={{ color: "#64748b", fontSize: 13 }}>
+            You can safely close this page now.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  // --- Main Payment UI ---
   return (
     <div
       style={{
-        minHeight: "60vh",
+        minHeight: "70vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         background: "#f8fafc",
         fontFamily: "Inter, sans-serif",
+        padding: 20,
       }}
     >
       <div
@@ -159,27 +268,77 @@ export default function PayClient({ paymentRecord, razorpayKey }) {
           </div>
         </div>
 
+        {/* Razorpay Button */}
         <button
           onClick={startPayment}
-          disabled={loading || paymentRecord.paid}
+          disabled={loading || paid}
           style={{
             marginTop: 24,
             width: "100%",
-            background: paymentRecord.paid ? "#94a3b8" : "#06b6d4",
+            background: paid ? "#94a3b8" : "#06b6d4",
             color: "#022c3a",
             padding: "12px 16px",
             borderRadius: 10,
             border: "none",
             fontWeight: 700,
-            cursor: paymentRecord.paid ? "not-allowed" : "pointer",
+            cursor: paid ? "not-allowed" : "pointer",
           }}
         >
-          {paymentRecord.paid
-            ? "Already Paid"
-            : loading
-            ? "Processing..."
-            : "Pay Now"}
+          {paid ? "Already Paid" : loading ? "Processing..." : "Pay Now"}
         </button>
+
+        {/* OR Divider */}
+        <div
+          style={{
+            textAlign: "center",
+            color: "#94a3b8",
+            margin: "18px 0",
+            fontSize: 13,
+          }}
+        >
+          — OR —
+        </div>
+
+        {/* QR Code Section */}
+        {!qrData ? (
+          <button
+            onClick={generateQR}
+            disabled={qrLoading || paid}
+            style={{
+              width: "100%",
+              background: "#e2e8f0",
+              color: "#0f172a",
+              padding: "10px 16px",
+              borderRadius: 10,
+              border: "none",
+              fontWeight: 600,
+              cursor: paid ? "not-allowed" : "pointer",
+            }}
+          >
+            {qrLoading
+              ? "Generating QR..."
+              : paid
+              ? "Already Paid"
+              : "Generate UPI QR Code"}
+          </button>
+        ) : (
+          <div style={{ marginTop: 20, textAlign: "center" }}>
+            <img
+              src={qrData.qrImage}
+              alt="Razorpay QR"
+              width={240}
+              height={240}
+              style={{
+                border: "1px solid #e2e8f0",
+                borderRadius: 8,
+                padding: 8,
+              }}
+            />
+            <p style={{ marginTop: 8, color: "#475569" }}>
+              Scan with any UPI app to pay ₹{paymentRecord.amount.toFixed(2)}
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );

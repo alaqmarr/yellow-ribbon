@@ -28,6 +28,6 @@ export default function PayPage(props) {
   return (
   <> 
   <PayClient {...props} />
-  <GenerateQr {...props} />
+  {/* <GenerateQr {...props} /> */}
   </>);
 }

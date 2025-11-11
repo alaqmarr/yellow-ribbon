@@ -10,7 +10,9 @@ export default async function handler(req, res) {
     if (!paymentId || !amount)
       return res.status(400).json({ error: "Missing fields" });
 
-    const payment = await db.paymentModel.findUnique({ where: { id: paymentId } });
+    const payment = await db.paymentModel.findUnique({
+      where: { id: paymentId },
+    });
     if (!payment) return res.status(404).json({ error: "Payment not found" });
 
     const razorpay = new Razorpay({
@@ -27,12 +29,14 @@ export default async function handler(req, res) {
 
     await db.paymentModel.update({
       where: { id: paymentId },
-      data: { razorpayPaymentId: order.id },
+      data: { paymentMethod: "razorpay" },
     });
 
     return res.status(200).json({ orderId: order.id });
   } catch (err) {
     console.error("create-order error:", err);
-    return res.status(500).json({ error: err.message || "Could not create order" });
+    return res
+      .status(500)
+      .json({ error: err.message || "Could not create order" });
   }
 }
