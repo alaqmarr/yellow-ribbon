@@ -238,19 +238,37 @@ export default function PayClient({ paymentRecord, razorpayKey }) {
                 <strong style={{color: "#111827"}}>₹{successInfo.amount.toFixed(2)}</strong> has been
                 confirmed.
               </p>
+              {/* --- Improved Transaction ID Box --- */}
               <div
                 style={{
                   background: "#f3f4f6",
                   padding: "12px 16px",
                   borderRadius: 12,
-                  color: "#4b5563",
-                  fontSize: 14,
                   marginBottom: 24,
-                  fontFamily: "monospace",
-                  border: "1px solid #e5e7eb"
+                  border: "1px solid #e5e7eb",
+                  textAlign: "left", // Align text to the left
                 }}
               >
-                Transaction ID: {successInfo.id}
+                <span style={{
+                  color: "#6b7281",
+                  fontSize: 12,
+                  display: "block", // Makes the span take its own line
+                  textTransform: "uppercase",
+                  fontWeight: 500,
+                  fontFamily: "Inter, sans-serif" // Use main font
+                }}>
+                  Transaction ID
+                </span>
+                <span style={{
+                  color: "#1f2937",
+                  fontSize: 14,
+                  fontFamily: "monospace", // Keep this for the ID
+                  fontWeight: 600,
+                  display: "block",
+                  marginTop: 2,
+                }}>
+                  {successInfo.id}
+                </span>
               </div>
               <p style={{ color: "#6b7281", fontSize: 14 }}>
                 You can safely close this page now.
