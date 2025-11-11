@@ -270,9 +270,6 @@ export default function PayClient({ paymentRecord, razorpayKey }) {
                   {successInfo.id}
                 </span>
               </div>
-              <p style={{ color: "#6b7281", fontSize: 14 }}>
-                You can safely close this page now.
-              </p>
             </motion.div>
           ) : (
             
