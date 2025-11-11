@@ -7,22 +7,15 @@ export default function PayClient({ paymentRecord, razorpayKey }) {
   const [qrLoading, setQrLoading] = React.useState(false);
   const [qrData, setQrData] = React.useState(null);
   const [paid, setPaid] = React.useState(paymentRecord?.paid || false);
-  const [successInfo, setSuccessInfo] = React.useState(null);
-
-  if (!paymentRecord) {
-    return (
-      <div
-        style={{
-          padding: 40,
-          fontFamily: "Inter, sans-serif",
-          textAlign: "center",
-        }}
-      >
-        <h2>Invalid or expired payment link</h2>
-        <p>This payment link does not exist or has been removed.</p>
-      </div>
-    );
-  }
+  const [successInfo, setSuccessInfo] = React.useState(
+    paymentRecord?.paid
+      ? {
+          amount: paymentRecord.amount,
+          id: paymentRecord.razorpayPaymentId,
+          name: paymentRecord.customerName,
+        }
+      : null
+  );
 
   // --- Razorpay Checkout ---
   const startPayment = async () => {
@@ -43,6 +36,7 @@ export default function PayClient({ paymentRecord, razorpayKey }) {
       if (!res.ok) throw new Error("Order creation failed");
       const { orderId } = await res.json();
 
+      // Load Razorpay script if not already loaded
       if (!window.Razorpay) {
         await new Promise((resolve, reject) => {
           const s = document.createElement("script");
@@ -103,7 +97,7 @@ export default function PayClient({ paymentRecord, razorpayKey }) {
     }
   };
 
-  // --- Generate QR Payment ---
+  // --- Generate QR ---
   const generateQR = async () => {
     try {
       setQrLoading(true);
@@ -182,8 +176,7 @@ export default function PayClient({ paymentRecord, razorpayKey }) {
           </h2>
           <p style={{ color: "#475569", fontSize: 15, marginBottom: 24 }}>
             Thank you, {successInfo.name}. Your payment of{" "}
-            <strong>₹{successInfo.amount.toFixed(2)}</strong> has been
-            confirmed.
+            <strong>₹{successInfo.amount.toFixed(2)}</strong> has been confirmed.
           </p>
           <div
             style={{
@@ -206,7 +199,7 @@ export default function PayClient({ paymentRecord, razorpayKey }) {
     );
   }
 
-  // --- Main Payment UI ---
+  // --- Main UI (for unpaid links) ---
   return (
     <div
       style={{
@@ -268,7 +261,6 @@ export default function PayClient({ paymentRecord, razorpayKey }) {
           </div>
         </div>
 
-        {/* Razorpay Button */}
         <button
           onClick={startPayment}
           disabled={loading || paid}
@@ -287,7 +279,6 @@ export default function PayClient({ paymentRecord, razorpayKey }) {
           {paid ? "Already Paid" : loading ? "Processing..." : "Pay Now"}
         </button>
 
-        {/* OR Divider */}
         <div
           style={{
             textAlign: "center",
@@ -299,7 +290,6 @@ export default function PayClient({ paymentRecord, razorpayKey }) {
           — OR —
         </div>
 
-        {/* QR Code Section */}
         {!qrData ? (
           <button
             onClick={generateQR}
