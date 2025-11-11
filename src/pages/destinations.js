@@ -18,7 +18,7 @@ export async function getStaticProps() {
 
   return {
     props: { destinations: destinations.data },
-    revalidate: 60, // optional: ISR every 1 minute
+    revalidate: 120, // optional: ISR every 2 minutes
   };
 }
 export default Destinations;
