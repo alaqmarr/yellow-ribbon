@@ -21,7 +21,7 @@
     "next": "12.1.2",
     "path": "^0.12.7",
     "prisma": "^6.19.0",
-    "razorpay": "^2.9.6",
+    "razorpay": "^2.8.6",
     "react": "18.2.0",
     "react-background-slider": "^2.0.0",
     "react-bootstrap": "^2.2.2",
