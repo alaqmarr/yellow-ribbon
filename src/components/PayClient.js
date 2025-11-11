@@ -1,8 +1,31 @@
 "use client";
 
 import React from "react";
+import Layout from "./Layout/Layout";
+import { motion, AnimatePresence } from "framer-motion";
+
+// --- Reusable Animated Loader Icon (Unchanged) ---
+const Loader = () => (
+  <motion.svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    style={{ marginRight: 8 }}
+    animate={{ rotate: 360 }}
+    transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+  >
+    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+  </motion.svg>
+);
 
 export default function PayClient({ paymentRecord, razorpayKey }) {
+  // --- State and Handlers (Unchanged) ---
   const [loading, setLoading] = React.useState(false);
   const [qrLoading, setQrLoading] = React.useState(false);
   const [qrData, setQrData] = React.useState(null);
@@ -17,11 +40,9 @@ export default function PayClient({ paymentRecord, razorpayKey }) {
       : null
   );
 
-  // --- Razorpay Checkout ---
   const startPayment = async () => {
     try {
       setLoading(true);
-
       const res = await fetch("/api/razorpay/create-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -32,11 +53,8 @@ export default function PayClient({ paymentRecord, razorpayKey }) {
           receipt: paymentRecord.id,
         }),
       });
-
       if (!res.ok) throw new Error("Order creation failed");
       const { orderId } = await res.json();
-
-      // Load Razorpay script if not already loaded
       if (!window.Razorpay) {
         await new Promise((resolve, reject) => {
           const s = document.createElement("script");
@@ -46,7 +64,6 @@ export default function PayClient({ paymentRecord, razorpayKey }) {
           document.body.appendChild(s);
         });
       }
-
       const options = {
         key: razorpayKey,
         amount: Math.round(paymentRecord.amount * 100),
@@ -59,7 +76,7 @@ export default function PayClient({ paymentRecord, razorpayKey }) {
           email: paymentRecord.customerEmail || "",
           contact: paymentRecord.customerPhone || "",
         },
-        theme: { color: "#0ea5a4" },
+        theme: { color: "#2563eb" }, // Updated theme color
         handler: async (response) => {
           try {
             const update = await fetch("/api/payments/update", {
@@ -74,7 +91,6 @@ export default function PayClient({ paymentRecord, razorpayKey }) {
               }),
             });
             if (!update.ok) throw new Error(await update.text());
-
             setPaid(true);
             setSuccessInfo({
               amount: paymentRecord.amount,
@@ -87,7 +103,6 @@ export default function PayClient({ paymentRecord, razorpayKey }) {
           }
         },
       };
-
       new window.Razorpay(options).open();
     } catch (err) {
       console.error("Payment initiation error:", err);
@@ -97,7 +112,6 @@ export default function PayClient({ paymentRecord, razorpayKey }) {
     }
   };
 
-  // --- Generate QR ---
   const generateQR = async () => {
     try {
       setQrLoading(true);
@@ -119,217 +133,282 @@ export default function PayClient({ paymentRecord, razorpayKey }) {
       setQrLoading(false);
     }
   };
+  
+  // --- STYLES ---
 
-  // --- Success Screen ---
-  if (paid && successInfo) {
-    return (
-      <div
-        style={{
-          minHeight: "80vh",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          background: "#f8fafc",
-          fontFamily: "Inter, sans-serif",
-          padding: 20,
-        }}
-      >
-        <div
-          style={{
-            width: 480,
-            background: "#fff",
-            borderRadius: 16,
-            boxShadow: "0 8px 30px rgba(0,0,0,0.1)",
-            textAlign: "center",
-            padding: "40px 24px",
-            animation: "fadeIn 0.6s ease-out",
-          }}
-        >
-          <div
-            style={{
-              width: 100,
-              height: 100,
-              borderRadius: "50%",
-              background: "#dcfce7",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              margin: "0 auto 24px",
-            }}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="48"
-              height="48"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#16a34a"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M20 6L9 17l-5-5" />
-            </svg>
-          </div>
-          <h2 style={{ color: "#065f46", fontSize: 22, marginBottom: 8 }}>
-            Payment Successful
-          </h2>
-          <p style={{ color: "#475569", fontSize: 15, marginBottom: 24 }}>
-            Thank you, {successInfo.name}. Your payment of{" "}
-            <strong>₹{successInfo.amount.toFixed(2)}</strong> has been confirmed.
-          </p>
-          <div
-            style={{
-              background: "#f1f5f9",
-              padding: "10px 16px",
-              borderRadius: 8,
-              color: "#475569",
-              fontSize: 14,
-              marginBottom: 24,
-              display: "inline-block",
-            }}
-          >
-            Transaction ID: {successInfo.id}
-          </div>
-          <p style={{ color: "#64748b", fontSize: 13 }}>
-            You can safely close this page now.
-          </p>
-        </div>
-      </div>
-    );
-  }
+  const pageBackgroundStyle = {
+    minHeight: "80vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    // Subtle gradient background
+    background: "linear-gradient(170deg, #f9fafb 0%, #f3f4f6 100%)",
+    padding: 20,
+    fontFamily: "Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif",
+  };
+  
+  const baseCardStyle = {
+    background: "#ffffff",
+    borderRadius: 20, // Softer radius
+    // Softer, more modern shadow
+    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.06)",
+    border: "1px solid #e5e7eb", // Subtle border for definition
+    fontFamily: "inherit",
+  };
 
-  // --- Main UI (for unpaid links) ---
+  const mainButtonBase = {
+    width: "100%",
+    padding: "12px 16px",
+    borderRadius: 12, // Softer radius
+    border: "none",
+    fontWeight: 600, // Slightly lighter weight
+    fontSize: 16,
+    cursor: "pointer",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    transition: "transform 0.1s ease, background-color 0.2s ease",
+  };
+
+  // --- Main Render ---
   return (
-    <div
-      style={{
-        minHeight: "70vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        background: "#f8fafc",
-        fontFamily: "Inter, sans-serif",
-        padding: 20,
-      }}
+    <Layout
+      pageTitle={
+        paid
+          ? `Payment Successful`
+          : `Pay Now - ${paymentRecord.customerName || "Customer"}`
+      }
     >
-      <div
-        style={{
-          width: 520,
-          background: "#fff",
-          borderRadius: 12,
-          boxShadow: "0 6px 24px rgba(16,24,40,0.08)",
-          padding: 28,
-        }}
-      >
-        <h2 style={{ margin: 0, fontSize: 20, color: "#0f172a" }}>
-          Confirm Payment
-        </h2>
-        <p style={{ color: "#64748b", marginTop: 8 }}>
-          Link ID:{" "}
-          <code
-            style={{
-              background: "#f1f5f9",
-              padding: "2px 6px",
-              borderRadius: 6,
-            }}
-          >
-            {paymentRecord.id}
-          </code>
-        </p>
-
-        <div
-          style={{
-            marginTop: 18,
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
-          <div>
-            <div style={{ fontWeight: 600 }}>{paymentRecord.customerName}</div>
-            <div style={{ fontSize: 13, color: "#475569" }}>
-              {paymentRecord.customerEmail}
-            </div>
-            <div style={{ fontSize: 13, color: "#475569" }}>
-              {paymentRecord.customerPhone}
-            </div>
-          </div>
-          <div style={{ textAlign: "right" }}>
-            <div style={{ fontWeight: 700, fontSize: 20 }}>
-              ₹{paymentRecord.amount.toFixed(2)}
-            </div>
-            <div style={{ fontSize: 12, color: "#94a3b8" }}>Amount to pay</div>
-          </div>
-        </div>
-
-        <button
-          onClick={startPayment}
-          disabled={loading || paid}
-          style={{
-            marginTop: 24,
-            width: "100%",
-            background: paid ? "#94a3b8" : "#06b6d4",
-            color: "#022c3a",
-            padding: "12px 16px",
-            borderRadius: 10,
-            border: "none",
-            fontWeight: 700,
-            cursor: paid ? "not-allowed" : "pointer",
-          }}
-        >
-          {paid ? "Already Paid" : loading ? "Processing..." : "Pay Now"}
-        </button>
-
-        <div
-          style={{
-            textAlign: "center",
-            color: "#94a3b8",
-            margin: "18px 0",
-            fontSize: 13,
-          }}
-        >
-          — OR —
-        </div>
-
-        {!qrData ? (
-          <button
-            onClick={generateQR}
-            disabled={qrLoading || paid}
-            style={{
-              width: "100%",
-              background: "#e2e8f0",
-              color: "#0f172a",
-              padding: "10px 16px",
-              borderRadius: 10,
-              border: "none",
-              fontWeight: 600,
-              cursor: paid ? "not-allowed" : "pointer",
-            }}
-          >
-            {qrLoading
-              ? "Generating QR..."
-              : paid
-              ? "Already Paid"
-              : "Generate UPI QR Code"}
-          </button>
-        ) : (
-          <div style={{ marginTop: 20, textAlign: "center" }}>
-            <img
-              src={qrData.qrImage}
-              alt="Razorpay QR"
-              width={240}
-              height={240}
+      <div style={pageBackgroundStyle}>
+        <AnimatePresence mode="wait">
+          {/* --- Success Screen --- */}
+          {paid && successInfo ? (
+            <motion.div
+              key="success"
               style={{
-                border: "1px solid #e2e8f0",
-                borderRadius: 8,
-                padding: 8,
+                ...baseCardStyle,
+                width: 480,
+                textAlign: "center",
+                padding: "40px 32px",
               }}
-            />
-            <p style={{ marginTop: 8, color: "#475569" }}>
-              Scan with any UPI app to pay ₹{paymentRecord.amount.toFixed(2)}
-            </p>
-          </div>
-        )}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ type: "spring", duration: 0.5 }}
+            >
+              <motion.div
+                style={{
+                  width: 100,
+                  height: 100,
+                  borderRadius: "50%",
+                  background: "#dcfce7",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  margin: "0 auto 24px",
+                }}
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ type: "spring", delay: 0.1, duration: 0.6 }}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="48"
+                  height="48"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#16a34a"
+                  strokeWidth="2.5"
+                >
+                  <motion.path
+                    d="M20 6L9 17l-5-5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    initial={{ pathLength: 0 }}
+                    animate={{ pathLength: 1 }}
+                    transition={{ duration: 0.5, delay: 0.4, type: "tween" }}
+                  />
+                </svg>
+              </motion.div>
+              <h2 style={{ color: "#065f46", fontSize: 24, marginBottom: 8, fontWeight: 600 }}>
+                Payment Successful
+              </h2>
+              <p style={{ color: "#4b5563", fontSize: 16, marginBottom: 24 }}>
+                Thank you, {successInfo.name}. Your payment of{" "}
+                <strong style={{color: "#111827"}}>₹{successInfo.amount.toFixed(2)}</strong> has been
+                confirmed.
+              </p>
+              <div
+                style={{
+                  background: "#f3f4f6",
+                  padding: "12px 16px",
+                  borderRadius: 12,
+                  color: "#4b5563",
+                  fontSize: 14,
+                  marginBottom: 24,
+                  fontFamily: "monospace",
+                  border: "1px solid #e5e7eb"
+                }}
+              >
+                Transaction ID: {successInfo.id}
+              </div>
+              <p style={{ color: "#6b7281", fontSize: 14 }}>
+                You can safely close this page now.
+              </p>
+            </motion.div>
+          ) : (
+            
+            /* --- Main UI (for unpaid links) --- */
+            <motion.div
+              key="payment"
+              style={{
+                ...baseCardStyle,
+                width: 520,
+                padding: 32,
+              }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+            >
+              <h2 style={{ margin: 0, fontSize: 24, color: "#111827", fontWeight: 600 }}>
+                Confirm Payment
+              </h2>
+              <p style={{ color: "#6b7281", marginTop: 8, fontSize: 14 }}>
+                Link ID:{" "}
+                <code
+                  style={{
+                    background: "#f3f4f6",
+                    padding: "3px 6px",
+                    borderRadius: 6,
+                    fontFamily: "monospace",
+                    fontSize: 14,
+                    color: "#1f2937",
+                    border: "1px solid #e5e7eb"
+                  }}
+                >
+                  {paymentRecord.id}
+                </code>
+              </p>
+
+              <div
+                style={{
+                  marginTop: 24,
+                  marginBottom: 24,
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "flex-start"
+                }}
+              >
+                <div>
+                  <div style={{ fontWeight: 600, color: "#1f2937", fontSize: 16 }}>
+                    {paymentRecord.customerName}
+                  </div>
+                  <div style={{ fontSize: 14, color: "#4b5563", marginTop: 4 }}>
+                    {paymentRecord.customerEmail}
+                  </div>
+                  <div style={{ fontSize: 14, color: "#4b5563", marginTop: 2 }}>
+                    {paymentRecord.customerPhone}
+                  </div>
+                </div>
+                <div style={{ textAlign: "right", flexShrink: 0, marginLeft: 16 }}>
+                  <div style={{ fontWeight: 700, fontSize: 28, color: "#111827" }}>
+                    ₹{paymentRecord.amount.toFixed(2)}
+                  </div>
+                  <div style={{ fontSize: 14, color: "#6b7281" }}>
+                    Amount to pay
+                  </div>
+                </div>
+              </div>
+
+              <motion.button
+                onClick={startPayment}
+                disabled={loading || paid}
+                style={{
+                  ...mainButtonBase,
+                  // New modern blue color
+                  background: paid ? "#9ca3af" : "#2563eb", 
+                  color: "#ffffff",
+                  cursor: loading || paid ? "not-allowed" : "pointer",
+                  opacity: loading || paid ? 0.7 : 1,
+                }}
+                whileHover={{ scale: loading || paid ? 1 : 1.02, background: paid ? "#9ca3af" : "#1d4ed8" }}
+                whileTap={{ scale: loading || paid ? 1 : 0.98 }}
+              >
+                {loading ? <Loader /> : null}
+                {paid ? "Already Paid" : loading ? "Processing..." : "Pay Now"}
+              </motion.button>
+
+              <div
+                style={{
+                  textAlign: "center",
+                  color: "#9ca3af",
+                  margin: "20px 0",
+                  fontSize: 14,
+                  fontWeight: 500
+                }}
+              >
+                — OR —
+              </div>
+
+              <AnimatePresence mode="wait">
+                {!qrData ? (
+                  <motion.button
+                    key="qr-button"
+                    onClick={generateQR}
+                    disabled={qrLoading || paid}
+                    style={{
+                      ...mainButtonBase,
+                      background: "#f3f4f6", // Lighter secondary button
+                      color: "#1f2937", // Darker text for contrast
+                      fontWeight: 600,
+                      fontSize: 15,
+                      border: "1px solid #e5e7eb",
+                      cursor: qrLoading || paid ? "not-allowed" : "pointer",
+                      opacity: qrLoading || paid ? 0.7 : 1
+                    }}
+                    whileHover={{ scale: qrLoading || paid ? 1 : 1.02, background: "#e5e7eb" }}
+                    whileTap={{ scale: qrLoading || paid ? 1 : 0.98 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                  >
+                    {qrLoading ? <Loader /> : null}
+                    {qrLoading
+                      ? "Generating QR..."
+                      : paid
+                      ? "Already Paid"
+                      : "Generate UPI QR Code"}
+                  </motion.button>
+                ) : (
+                  <motion.div
+                    key="qr-code"
+                    style={{ marginTop: 20, textAlign: "center" }}
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                  >
+                    <img
+                      src={qrData.qrImage}
+                      alt="Razorpay QR"
+                      width={240}
+                      height={240}
+                      style={{
+                        border: "1px solid #e5e7eb",
+                        borderRadius: 12,
+                        padding: 8,
+                        margin: "0 auto",
+                      }}
+                    />
+                    <p style={{ marginTop: 12, color: "#4b5563", fontSize: 14 }}>
+                      Scan with any UPI app to pay <strong style={{color: "#111827"}}>₹{paymentRecord.amount.toFixed(2)}</strong>
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
-    </div>
+    </Layout>
   );
 }
