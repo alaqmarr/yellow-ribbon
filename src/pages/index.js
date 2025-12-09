@@ -12,6 +12,7 @@ import TestimonialOne from "@/components/TestimonialOne/TestimonialOne";
 import TourSearch from "@/components/TourSearch/TourSearch";
 import VideoOne from "@/components/VideoOne/VideoOne";
 import WhyChoose from "@/components/WhyChoose/WhyChoose";
+import ServicesOne from "@/components/ServicesOne/ServicesOne";
 import axios from "axios";
 import React from "react";
 
@@ -29,6 +30,7 @@ const Home = ({ packages, destinations, blogs }) => {
       <TestimonialOne />
       {/* <GalleryOne /> */}
       <WhyChoose />
+      <ServicesOne />
       <NewsOne data={blogs} />
     </Layout>
   );

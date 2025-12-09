@@ -3,14 +3,14 @@ import React, { Fragment } from "react";
 import { Image } from "react-bootstrap";
 
 const SingleNewsOne = ({ news = {}, newsTwo = false }) => {
-  const { thumbnail, title, author, comments, date, id , createdAt} = news;
+  const { thumbnail, title, author, comments, date, id, createdAt } = news;
 
   return (
     <div
       className={
         newsTwo ? "news-one__single animated fadeInUp" : "news-one__single"
       }
-      style={{ userSelect: newsTwo ? "none" : "unset" }}
+      style={{ userSelect: newsTwo ? "none" : "unset", position: "relative" }}
     >
       <div className="news-one__img">
         <Image src={`${thumbnail}`} alt="" />
@@ -48,6 +48,20 @@ const SingleNewsOne = ({ news = {}, newsTwo = false }) => {
           <Link href={"/blogs/" + id}>{title}</Link>
         </h3>
       </div>
+      <Link href={"/blogs/" + id}>
+        <a
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            zIndex: 1,
+          }}
+        >
+          <span className="sr-only">View Details</span>
+        </a>
+      </Link>
     </div>
   );
 };
