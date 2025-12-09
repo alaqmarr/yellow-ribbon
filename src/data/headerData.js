@@ -1,5 +1,5 @@
-const logo = '/assets/images/resources/logo-1.png';
-const logo2 = '/assets/images/resources/logo-2.png';
+const logo = "/assets/images/resources/logo-1.png";
+const logo2 = "/assets/images/resources/logo-2.png";
 
 const navItems = [
   {
@@ -8,7 +8,7 @@ const navItems = [
     href: "/",
     subNavItems: [],
   },
-    {
+  {
     id: 1,
     name: "Gallery",
     href: "/gallery",
@@ -161,13 +161,13 @@ const headerData2 = {
     {
       id: 1,
       icon: "icon-phone-call",
-      content: "+ 92 666 999 0000",
+      content: "+91 97899 05294",
       subHref: "tel",
     },
     {
       id: 2,
       icon: "icon-at",
-      content: "needhelp@company.com",
+      content: "yellowribbontravels@gmail.com",
       subHref: "mailto",
     },
   ],

@@ -12,7 +12,7 @@ const footerData = {
   year: new Date().getFullYear(),
   author: "YRT",
   about:
-    "Welcome to our Trip and Tour Agency. Lorem simply text amet cing elit.",
+    "Yellow Ribbon Travels is your trusted partner for flight tickets, visa assistance, and customized holiday packages. We ensure seamless travel experiences tailored to your needs.",
   icons: [
     {
       id: 1,

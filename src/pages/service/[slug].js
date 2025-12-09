@@ -26,7 +26,7 @@ const ServiceDetails = ({ service }) => {
                 >
                   {/* Placeholder image logic - normally we would map this */}
                   <Image
-                    src="/assets/images/backgrounds/page-header-bg.jpg"
+                    src={service.image}
                     alt={service.title}
                     fluid
                     style={{ borderRadius: "10px" }}
@@ -161,8 +161,8 @@ const ServiceDetails = ({ service }) => {
                       color: "#fff",
                     }}
                   >
-                    <a href="tel:666-888-0000" style={{ color: "#fff" }}>
-                      666 888 0000
+                    <a href="tel:9789905294" style={{ color: "#fff" }}>
+                      978 990 5294
                     </a>
                   </h2>
                 </div>

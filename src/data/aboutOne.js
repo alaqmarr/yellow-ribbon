@@ -6,7 +6,7 @@ const aboutOne = {
   about,
   shape1,
   shape2,
-  phone: "666-888-0000",
+  phone: "978-990-5294",
   discount: "30%",
   tagline: "Plan Your Trip",
   title: "Plan Your Trip with Yellow Ribbon Travels",
