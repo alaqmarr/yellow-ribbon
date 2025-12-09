@@ -26,7 +26,7 @@ const ServiceDetails = ({ service }) => {
                 >
                   {/* Placeholder image logic - normally we would map this */}
                   <Image
-                    src="/assets/images/backgrounds/services-bg.jpg"
+                    src="/assets/images/backgrounds/page-header-bg.jpg"
                     alt={service.title}
                     fluid
                     style={{ borderRadius: "10px" }}

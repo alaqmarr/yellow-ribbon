@@ -1,5 +1,3 @@
-import serviceBg from "@/images/backgrounds/services-bg.jpg"; // Placeholder, need to check if this exists or use another
-
 const services = [
   {
     id: 1,
