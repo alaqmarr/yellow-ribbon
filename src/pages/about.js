@@ -19,7 +19,6 @@ const About = () => {
       <VideoTwo />
       <CounterOne />
       <TeamOne />
-      <BrandTwo brandThree />
     </Layout>
   );
 };
