@@ -7,7 +7,7 @@ const teamOne = {
   teams: [
     {
       id: 1,
-      image: "team-1-1.jpg",
+      image: "https://res.cloudinary.com/deqt5y5sk/image/upload/v1765519723/IMG-20251122-WA0058_mqpibu.jpg",
       name: "Rukaiya Rangoonwala",
       title: "Co Founder & CEO",
       socials: [
@@ -18,7 +18,7 @@ const teamOne = {
     },
     {
       id: 2,
-      image: "team-1-2.jpg",
+      image: "https://res.cloudinary.com/deqt5y5sk/image/upload/v1765519723/IMG-20251122-WA0057_rqphbd.jpg",
       name: "Yusuf Rangoonwala",
       title: "Co Founder & COO",
       socials: [
