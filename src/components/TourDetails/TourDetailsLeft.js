@@ -6,12 +6,14 @@ import { Col, Row } from "react-bootstrap";
 import ReviewForm from "./ReviewForm";
 import ReviewScoreBar from "./ReviewScoreBar";
 import SingleComment from "./SingleComment";
+import { parseRawBullets } from "../../utils/format";
 
 const { overview, overviewList, faq, superb, reviewScore, comments, reviews } =
   tourDetailsLeft;
 
 const TourDetailsLeft = () => {
   const [active, setActive] = useState(1);
+  const formattedOverviewList = parseRawBullets(overviewList);
 
   return (
     <div className="tour-details-two__left">
@@ -23,7 +25,7 @@ const TourDetailsLeft = () => {
           <div className="tour-details-two__overview-bottom-inner">
             <div className="tour-details-two__overview-bottom-left">
               <ul className="list-unstyled tour-details-two__overview-bottom-list">
-                {overviewList.slice(0, 4).map((over, index) => (
+                {formattedOverviewList.slice(0, 4).map((over, index) => (
                   <li key={index}>
                     <div className="icon">
                       <i className="fa fa-check"></i>
@@ -37,7 +39,7 @@ const TourDetailsLeft = () => {
             </div>
             <div className="tour-details-two__overview-bottom-right">
               <ul className="list-unstyled tour-details-two__overview-bottom-right-list">
-                {overviewList.slice(4).map((over, index) => (
+                {formattedOverviewList.slice(4).map((over, index) => (
                   <li key={index}>
                     <div className="icon">
                       <i className="fa fa-times"></i>
@@ -73,12 +75,37 @@ const TourDetailsLeft = () => {
                 }`}
               >
                 <div className="inner">
-                  <p>{text}</p>
-                  <ul className="list-unstyled">
-                    {lists.map((list, index) => (
-                      <li key={index}>{list}</li>
-                    ))}
-                  </ul>
+                  {(() => {
+                    const parsedLists = parseRawBullets(lists || []);
+                    const parsedText = parseRawBullets(text || []);
+                    // Combine and deduplicate
+                    const combined = [...parsedLists, ...parsedText].filter(
+                      (item, index, self) =>
+                        item !== text && self.indexOf(item) === index
+                    );
+
+                    // If we found bullets/split items, show them as a list.
+                    // Otherwise, just show the paragraph text.
+                    if (combined.length > 0) {
+                      return (
+                        <ul
+                          style={{
+                            listStyleType: "disc",
+                            paddingLeft: "20px",
+                            marginBottom: "20px",
+                          }}
+                        >
+                          {combined.map((list, index) => (
+                            <li key={index} style={{ marginBottom: "10px" }}>
+                              {list}
+                            </li>
+                          ))}
+                        </ul>
+                      );
+                    } else {
+                      return <p>{text}</p>;
+                    }
+                  })()}
                 </div>
               </div>
             </div>

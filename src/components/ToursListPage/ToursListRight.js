@@ -1,3 +1,4 @@
+import { formatPrice } from "../../utils/format";
 import toursListPage from "@/data/toursListPage";
 import Link from "next/link";
 import React from "react";
@@ -13,10 +14,7 @@ const ToursListRight = () => {
           ({ id, image, superb, title, rate, text, date, user, map }) => (
             <div key={id} className="tours-list__single">
               <div className="tours-list__img">
-                <Image
-                  src={`/assets/images/resources/${image}`}
-                  alt=""
-                />
+                <Image src={`/assets/images/resources/${image}`} alt="" />
                 <div className="tours-list__icon">
                   <Link href="/tour-details">
                     <a>
@@ -33,7 +31,7 @@ const ToursListRight = () => {
                   <Link href="/tour-details">{title}</Link>
                 </h3>
                 <p className="tours-list__rate">
-                  <span>${rate}</span> / Per Person
+                  <span>{formatPrice(rate)}</span> / Per Person
                 </p>
                 <p className="tours-list__text">{text}</p>
                 <ul className="tours-list__meta list-unstyled">

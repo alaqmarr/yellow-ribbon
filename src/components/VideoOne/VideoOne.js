@@ -49,7 +49,7 @@ const VideoOne = () => {
                         <span className={icon}></span>
                       </div>
                       <h4 className="video-one__icon-box-title">
-                        <a href="#">
+                        <a href="https://wa.me/919789905294?text=Hi,%20Yellow%20Ribbon%20Travels!">
                           {title.split("\n").map((t, i) => (
                             <Fragment key={i}>
                               <span>{t}</span>

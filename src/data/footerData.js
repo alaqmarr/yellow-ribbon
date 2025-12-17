@@ -1,9 +1,21 @@
 const logo = "/assets/images/resources/logo-1.png";
 const social = [
-  { icon: "fa-twitter", link: "" },
-  { icon: "fa-facebook-square", link: "" },
-  { icon: "fa-pinterest-p", link: "" },
-  { icon: "fa-instagram", link: "" },
+  {
+    icon: "fa-twitter",
+    link: "https://wa.me/919789905294?text=Hi,%20Yellow%20Ribbon%20Travels!",
+  },
+  {
+    icon: "fa-facebook-square",
+    link: "https://wa.me/919789905294?text=Hi,%20Yellow%20Ribbon%20Travels!",
+  },
+  {
+    icon: "fa-pinterest-p",
+    link: "https://wa.me/919789905294?text=Hi,%20Yellow%20Ribbon%20Travels!",
+  },
+  {
+    icon: "fa-instagram",
+    link: "https://wa.me/919789905294?text=Hi,%20Yellow%20Ribbon%20Travels!",
+  },
 ];
 
 const footerData = {
@@ -34,10 +46,26 @@ const footerData = {
   ],
   companies: [
     { id: 1, link: "/about", title: "About Us" },
-    { id: 2, link: "#", title: "Community Blog" },
-    { id: 3, link: "#", title: "Rewards" },
-    { id: 4, link: "#", title: "Work with Us" },
-    { id: 5, link: "#", title: "Meet the Team" },
+    {
+      id: 2,
+      link: "https://wa.me/919789905294?text=Hi,%20Yellow%20Ribbon%20Travels!",
+      title: "Community Blog",
+    },
+    {
+      id: 3,
+      link: "https://wa.me/919789905294?text=Hi,%20Yellow%20Ribbon%20Travels!",
+      title: "Rewards",
+    },
+    {
+      id: 4,
+      link: "https://wa.me/919789905294?text=Hi,%20Yellow%20Ribbon%20Travels!",
+      title: "Work with Us",
+    },
+    {
+      id: 5,
+      link: "https://wa.me/919789905294?text=Hi,%20Yellow%20Ribbon%20Travels!",
+      title: "Meet the Team",
+    },
   ],
   explore: [
     { id: 2, link: "/return-policy", title: "Returns" },

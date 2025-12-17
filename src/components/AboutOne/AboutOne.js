@@ -29,7 +29,10 @@ const AboutOne = () => {
             <div className="about-one__left">
               <div className="about-one__img-box">
                 <div className="about-one__img">
-                  <Image src={about} alt="" />
+                  <Image
+                    src={`https://images.unsplash.com/photo-1504598318550-17eba1008a68?q=80&w=686&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D`}
+                    alt=""
+                  />
                 </div>
                 <div className="about-one__call">
                   <div className="about-one__call-icon">
@@ -64,7 +67,10 @@ const AboutOne = () => {
                   </li>
                 ))}
               </ul>
-              <a href="#" className="about-one__btn thm-btn">
+              <a
+                href="https://wa.me/919789905294?text=Hi,%20Yellow%20Ribbon%20Travels!"
+                className="about-one__btn thm-btn"
+              >
                 Book with us now
               </a>
             </div>

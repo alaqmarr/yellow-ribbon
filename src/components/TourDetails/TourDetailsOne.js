@@ -1,21 +1,21 @@
+import { formatPrice } from "../../utils/format";
 import { tourDetailsOne } from "@/data/tourDetailsPage";
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 
-
 const TourDetailsOne = ({ packageData }) => {
   const {
-id,
-name,
-days,
-nights,
-image,
-price,
-location,
-itineraries,
-inclusions,
-exclusions,
-type
+    id,
+    name,
+    days,
+    nights,
+    image,
+    price,
+    location,
+    itineraries,
+    inclusions,
+    exclusions,
+    type,
   } = packageData;
   return (
     <section className="tour-details">
@@ -27,7 +27,7 @@ type
                 <div className="tour-details__top-left">
                   <h2 className="tour-details__top-title">{name}</h2>
                   <p className="tour-details__top-rate">
-                    <span>{price}</span> / Per Person
+                    <span>{formatPrice(price)}</span> / Per Person
                   </p>
                 </div>
                 <div className="tour-details__top-right">
@@ -38,7 +38,9 @@ type
                       </div>
                       <div className="text">
                         <p>Duration</p>
-                        <h6>{days} Days {nights} Nights</h6>
+                        <h6>
+                          {days} Days {nights} Nights
+                        </h6>
                       </div>
                     </li>
                     <li>

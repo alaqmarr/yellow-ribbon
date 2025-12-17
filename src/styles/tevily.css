@@ -2093,7 +2093,9 @@ ul {
 .popular-tours {
   position: relative;
   display: block;
-  padding: 0 0 185px;
+  padding: 120px 0 90px;
+  background-color: var(--thm-base);
+  z-index: 1;
 }
 
 .popular-tours__container {
@@ -2117,10 +2119,14 @@ ul {
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   overflow: hidden;
+  height: 250px; /* Fixed height for image */
+  width: 100%;
 }
 
 .popular-tours__img img {
   width: 100%;
+  height: 100%; /* Fill container */
+  object-fit: cover; /* Maintain aspect ratio */
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   opacity: 1;
@@ -2172,6 +2178,10 @@ ul {
   padding: 35px 40px 40px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+  height: 280px; /* Fixed height for content area */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .popular-tours__stars {
@@ -2745,9 +2755,9 @@ ul {
 .gallery-one {
   position: relative;
   display: block;
-  padding: 380px 0 90px;
+  padding: 120px 0 90px;
   background-color: #faf5ee;
-  margin-top: -270px;
+  /* Removed negative margin and excessive top padding */
 }
 
 .gallery-one-bg {
@@ -2775,23 +2785,54 @@ ul {
 .gallery-one__content {
   position: relative;
   display: block;
-  margin-right: -5px;
-  margin-left: -5px;
+  column-count: 5;
+  column-gap: 15px;
+  /* Masonry Layout */
+}
+
+@media (max-width: 1200px) {
+  .gallery-one__content {
+    column-count: 4;
+  }
+}
+
+@media (max-width: 992px) {
+  .gallery-one__content {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-one__content {
+    column-count: 2;
+    column-gap: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .gallery-one__content {
+    column-count: 2;
+    column-gap: 5px; /* Tight gap for mobile Pinterest feel */
+  }
 }
 
 .gallery-one__content li {
   position: relative;
-  display: block;
-  float: left;
-  width: 20%;
-  padding: 0 5px 0;
+  display: inline-block; /* Essential for break-inside to work in some browsers */
+  width: 100%;
+  padding: 0;
+  margin: 0 0 15px 0; /* Bottom margin creates the vertical gap */
+  break-inside: avoid; /* Prevent spliting across columns */
   overflow: hidden;
-  margin-bottom: 30px;
 }
 
-.gallery-one__content li:last-child {
-  margin-right: 0;
+@media (max-width: 576px) {
+  .gallery-one__content li {
+    margin-bottom: 5px;
+  }
 }
+
+
 
 .gallery-one__img-box {
   position: relative;
@@ -6389,12 +6430,46 @@ ul {
   border-radius: var(--thm-border-radius);
 }
 
-.tour-details__review-score-ave {
-  -webkit-box-flex: 1;
-  flex: 1 1 245px;
-  max-width: 245px;
-  display: -webkit-box;
-  display: flex;
+
+/*--------------------------------------------------------------
+# Gallery Page Masonry (Added)
+--------------------------------------------------------------*/
+.gallery-page-masonry {
+  position: relative;
+  display: block;
+  padding: 120px 0 90px;
+  background-color: var(--thm-base);
+}
+
+.gallery-page-masonry__content {
+  column-count: 3;
+  column-gap: 20px;
+}
+
+@media (max-width: 992px) {
+  .gallery-page-masonry__content {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 576px) {
+  .gallery-page-masonry__content {
+    column-count: 2;
+    column-gap: 5px;
+  }
+}
+
+.gallery-page-masonry__item {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 20px;
+  break-inside: avoid;
+}
+
+@media (max-width: 576px) {
+  .gallery-page-masonry__item {
+    margin-bottom: 5px;
+  }
 }
 
 .tour-details__review-score-ave .my-auto {

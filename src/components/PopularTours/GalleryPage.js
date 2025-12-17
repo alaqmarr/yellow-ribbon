@@ -9,7 +9,7 @@ import SingleGallery from "./SingleGallery";
 
 const GalleryPage = ({ toursPage = false, images }) => {
   return (
-    <section className="popular-tours-two">
+    <section className="gallery-page-masonry">
       <Container>
         {!toursPage && (
           <div className="section-title text-center">
@@ -17,19 +17,16 @@ const GalleryPage = ({ toursPage = false, images }) => {
             <h2 className="section-title__title">{title}</h2>
           </div>
         )}
-        <Row>
+        <div className="gallery-page-masonry__content">
           {images.map((image, index) => (
-            <Col
+            <div
               key={index}
-              xl={4}
-              lg={6}
-              md={6}
-              className="animated fadeInUp"
+              className="gallery-page-masonry__item animated fadeInUp"
             >
               <SingleGallery image={image} userSelect />
-            </Col>
+            </div>
           ))}
-        </Row>
+        </div>
       </Container>
     </section>
   );

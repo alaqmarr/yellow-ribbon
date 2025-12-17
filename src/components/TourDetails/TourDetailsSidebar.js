@@ -1,51 +1,51 @@
+import { formatPrice } from "../../utils/format";
 import { tourDetailsSidebar } from "@/data/tourDetailsPage";
 import React, { useState } from "react";
 import { Image } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import Select from "react-select";
 
-const typeOptions = ["Adventure", "Wildlife", "Sightseeing"].map((it) => ({
-  value: it,
-  label: it,
-}));
+const transportOptions = [
+  { value: "Self", label: "Self Transportation" },
+  { value: "With Package", label: "With Package Transportation" },
+];
 
 const customStyle = {
   valueContainer: (provided) => ({
     ...provided,
     color: "#787780",
-    fontSize: 13,
+    fontSize: 14,
     fontWeight: 500,
+    padding: "0",
+    margin: "0",
   }),
   singleValue: (provided) => ({
     ...provided,
     cursor: "pointer",
+    color: "#787780",
   }),
   menu: (provided) => ({
     ...provided,
     marginTop: 5,
     border: "none",
-    boxShadow: "none",
+    boxShadow: "0px 10px 30px 0px rgba(0, 0, 0, 0.1)",
     zIndex: 10,
+    borderRadius: "8px",
+    padding: "0",
   }),
   option: (provided, state) => ({
     ...provided,
-    color: "white",
-    padding: "4px 20px",
-    backgroundColor: state.isSelected ? "#e8604c" : "#313041",
+    color: state.isSelected ? "#fff" : "#787780",
+    padding: "10px 20px",
+    backgroundColor: state.isSelected ? "var(--thm-primary)" : "#fff",
     transition: "all 0.4s ease",
     cursor: "pointer",
-    borderBottom:
-      state.label === typeOptions[typeOptions.length - 1].label
-        ? "none"
-        : "0.5px solid #ffffff33",
+    borderBottom: "1px solid #f4f4f4",
     "&:hover": {
-      backgroundColor: "#e8604c",
+      backgroundColor: "var(--thm-primary)",
+      color: "#fff",
     },
-    borderRadius:
-      state.label === typeOptions[typeOptions.length - 1].label
-        ? "0 0 8px 8px"
-        : 0,
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 500,
   }),
   control: (base) => ({
@@ -53,106 +53,123 @@ const customStyle = {
     borderColor: "transparent",
     boxShadow: "none",
     borderRadius: "8px",
+    backgroundColor: "#f4f5f8", // Matching the light gray background typical of theme inputs
+    height: "55px",
     "&:hover": {
       borderColor: "transparent",
     },
-    padding: 14,
+    padding: "0 20px",
+    display: "flex",
+    alignItems: "center",
+  }),
+  placeholder: (defaultStyles) => ({
+    ...defaultStyles,
+    color: "#787780",
+    fontSize: 14,
+    fontWeight: 400,
+  }),
+  dropdownIndicator: (provided) => ({
+    ...provided,
+    display: "none", // Hide default arrow as we have a custom icon
+  }),
+  indicatorSeparator: () => ({
+    display: "none",
   }),
 };
 
 const TourDetailsSidebar = () => {
-  const [type, setType] = useState("Adventure");
-  const [ticket, setTicket] = useState("Adventure");
+  const [transport, setTransport] = useState("Self");
+  const [passengers, setPassengers] = useState(1);
   const [startDate, setStartDate] = useState(new Date());
 
-  const handleSelectType = ({ value }) => {
-    setType(value);
-  };
-
-  const handleSelectTicket = ({ value }) => {
-    setTicket(value);
+  const handleSelectTransport = ({ value }) => {
+    setTransport(value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
-    const data = {
-      type,
-      ticket,
-      place: formData.get("place"),
-      when: formData.get("when"),
-      date: startDate,
-    };
-    console.log(data);
+    const dateString = startDate.toLocaleDateString("en-GB"); // DD/MM/YYYY format
+    const currentUrl = window.location.href;
+
+    // Construct WhatsApp Message
+    const text = `Hello, I am interested in booking a tour.%0A
+*Tour Link:* ${currentUrl}%0A
+*Travel Date:* ${dateString}%0A
+*No. of Passengers:* ${passengers}%0A
+*Transportation:* ${transport}
+`;
+
+    const whatsappUrl = `https://wa.me/919789905294?text=${text}`;
+
+    // Open in new tab
+    window.open(whatsappUrl, "_blank");
   };
 
   return (
     <div className="tour-details-two__sidebar">
       <div className="tour-details-two__book-tours">
-        <h3 className="tour-details-two__sidebar-title">Book Tours</h3>
+        <h3 className="tour-details-two__sidebar-title">Book This Tour</h3>
         <form
           onSubmit={handleSubmit}
           className="tour-details-two__sidebar-form"
         >
-          <div className="tour-details-two__sidebar-form-input">
-            <input type="text" placeholder="Where to" name="place" />
-          </div>
-          <div className="tour-details-two__sidebar-form-input">
-            <input type="text" placeholder="When" name="when" />
-          </div>
-          <div className="tour-details-two__sidebar-form-input">
-            <Select
-              name="type"
-              options={typeOptions}
-              onChange={handleSelectType}
-              styles={customStyle}
-              isSearchable={false}
-              components={{
-                IndicatorSeparator: () => null,
-                DropdownIndicator: () => null,
-              }}
-              placeholder="Type"
-              instanceId="tourTypeSelect10"
-            />
-            <div className="tour-details-two__sidebar-form-icon">
-              <i className="fa fa-angle-down"></i>
-            </div>
-          </div>
+          {/* Travel Date */}
           <div className="tour-details-two__sidebar-form-input">
             <DatePicker
               selected={startDate}
               onChange={(date) => setStartDate(date)}
-              placeholderText="Select date"
-              id="datepicker"
+              placeholderText="Select Travel Date"
+              className="w-100" // Ensure it takes full width
+              dateFormat="dd/MM/yyyy"
             />
             <div className="tour-details-two__sidebar-form-icon">
-              <i className="fa fa-angle-down"></i>
+              <i className="fa fa-calendar-alt"></i>
             </div>
           </div>
+
+          {/* Number of Passengers */}
+          <div className="tour-details-two__sidebar-form-input">
+            <input
+              type="number"
+              placeholder="No. of Passengers"
+              name="passengers"
+              min="1"
+              value={passengers}
+              onChange={(e) => setPassengers(e.target.value)}
+              required
+            />
+            <div className="tour-details-two__sidebar-form-icon">
+              <i className="fa fa-users"></i>
+            </div>
+          </div>
+
+          {/* Transportation Selection */}
           <div className="tour-details-two__sidebar-form-input">
             <Select
-              name="ticket"
-              options={typeOptions}
-              onChange={handleSelectTicket}
+              name="transport"
+              options={transportOptions}
+              onChange={handleSelectTransport}
               styles={customStyle}
               isSearchable={false}
               components={{
                 IndicatorSeparator: () => null,
                 DropdownIndicator: () => null,
               }}
-              placeholder="Choose Ticket"
-              instanceId="tourTypeSelect15"
+              value={transportOptions.find((opt) => opt.value === transport)}
+              placeholder="Transportation Type"
+              instanceId="transportSelect"
             />
             <div className="tour-details-two__sidebar-form-icon">
               <i className="fa fa-angle-down"></i>
             </div>
           </div>
+
           <button
             style={{ zIndex: 0 }}
             type="submit"
             className="thm-btn tour-details-two__sidebar-btn"
           >
-            Book Now
+            Book via WhatsApp
           </button>
         </form>
       </div>
@@ -162,13 +179,10 @@ const TourDetailsSidebar = () => {
           {tourDetailsSidebar.map(({ id, title, image, price, location }) => (
             <li key={id}>
               <div className="tour-details-two__last-minute-image">
-                <Image
-                  src={`/assets/images/resources/${image}`}
-                  alt=""
-                />
+                <Image src={`/assets/images/resources/${image}`} alt="" />
               </div>
               <div className="tour-details-two__last-minute-content">
-                <h6>${price}</h6>
+                <h6>{formatPrice(price)}</h6>
                 <h5>{title}</h5>
                 <p>{location}</p>
               </div>

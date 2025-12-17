@@ -16,10 +16,10 @@ const SingleSlide = ({ slide = {} }) => {
       <Container>
         <div className="swiper-slide-inner">
           <div className="tour-details-slider_icon">
-            <a href="#">
+            <a href="https://wa.me/919789905294?text=Hi,%20Yellow%20Ribbon%20Travels!">
               <i className="fab fa-youtube"></i>
             </a>
-            <a href="#">
+            <a href="https://wa.me/919789905294?text=Hi,%20Yellow%20Ribbon%20Travels!">
               <i className="fa fa-heart"></i>
             </a>
           </div>

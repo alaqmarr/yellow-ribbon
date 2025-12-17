@@ -1,3 +1,4 @@
+import { formatPrice } from "../../utils/format";
 import Link from "next/link";
 import React from "react";
 import { Image } from "react-bootstrap";
@@ -22,7 +23,7 @@ const SingleTour = ({ tour = {}, userSelect = false }) => {
             <Link href={`/package/${id}`}>{name || "Untitled Package"}</Link>
           </h3>
           <p className="popular-tours__rate">
-            <span>₹ {price}</span> / Per Person
+            <span>{formatPrice(price)}</span> / Per Person
           </p>
           <ul className="popular-tours__meta list-unstyled">
             <li>
