@@ -6466,6 +6466,17 @@ ul {
   break-inside: avoid;
 }
 
+.gallery-page-masonry__item .popular-tours__single,
+.gallery-page-masonry__item .popular-tours__img {
+  height: auto !important;
+  margin: 0;
+}
+
+.gallery-page-masonry__item .popular-tours__img img {
+  height: auto !important;
+  width: 100%;
+}
+
 @media (max-width: 576px) {
   .gallery-page-masonry__item {
     margin-bottom: 5px;
