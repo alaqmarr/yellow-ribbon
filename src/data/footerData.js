@@ -48,30 +48,30 @@ const footerData = {
     { id: 1, link: "/about", title: "About Us" },
     {
       id: 2,
-      link: "https://wa.me/919789905294?text=Hi,%20Yellow%20Ribbon%20Travels!",
+      link: "/blogs",
       title: "Community Blog",
     },
     {
       id: 3,
-      link: "https://wa.me/919789905294?text=Hi,%20Yellow%20Ribbon%20Travels!",
-      title: "Rewards",
+      link: "/tours",
+      title: "Tours",
     },
     {
       id: 4,
-      link: "https://wa.me/919789905294?text=Hi,%20Yellow%20Ribbon%20Travels!",
-      title: "Work with Us",
+      link: "/contact",
+      title: "Contact Us",
     },
     {
       id: 5,
-      link: "https://wa.me/919789905294?text=Hi,%20Yellow%20Ribbon%20Travels!",
-      title: "Meet the Team",
+      link: "/gallery",
+      title: "Gallery",
     },
   ],
   explore: [
-    { id: 2, link: "/return-policy", title: "Returns" },
-    { id: 3, link: "/refund-cancellations", title: "Refunds" },
-    { id: 4, link: "/terms-conditions", title: "Terms and Conditions" },
-    { id: 5, link: "/privacy-policy", title: "Privacy Policy" },
+    { id: 2, link: "/destinations", title: "Destinations" },
+    { id: 3, link: "/about", title: "About Us" },
+    { id: 4, link: "/contact", title: "Contact Us" },
+    { id: 5, link: "/gallery", title: "Gallery" },
   ],
 };
 
