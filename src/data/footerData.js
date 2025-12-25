@@ -49,7 +49,7 @@ const footerData = {
     {
       id: 2,
       link: "/blogs",
-      title: "Community Blog",
+      title: "Blogs",
     },
     {
       id: 3,
