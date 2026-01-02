@@ -18,7 +18,7 @@ const SingleDestination = ({ destination = {} }) => {
   } = destination;
 
   return (
-    <Col xl={3} lg={3}>
+    <Col xl={4} lg={4} md={6}>
       <div
         className="destinations-one__single"
         style={{ position: "relative" }}
