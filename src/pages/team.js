@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout/Layout";
 import PageHeader from "@/components/PageHeader/PageHeader";
+import Link from "next/link";
 import React from "react";
 import { Col, Container, Row, Image } from "react-bootstrap";
 
@@ -203,8 +204,8 @@ const Team = () => {
               />
               <h4 style={{ marginBottom: "15px" }}>Proud BNI Member</h4>
               <p style={{ color: "var(--thm-gray)" }}>
-                Yellow Ribbon Travels is a proud member of BNI — the world's
-                largest business networking organization.
+                Yellow Ribbon Travels is a proud member of BNI — the
+                world&apos;s largest business networking organization.
               </p>
             </Col>
           </Row>
@@ -217,7 +218,7 @@ const Team = () => {
           <Row className="justify-content-center text-center">
             <Col lg={8}>
               <h2 style={{ marginBottom: "20px" }}>
-                Let's Plan Your Next Adventure
+                Let&apos;s Plan Your Next Adventure
               </h2>
               <p style={{ marginBottom: "30px", color: "var(--thm-gray)" }}>
                 Connect with our team and start planning your dream vacation
@@ -241,13 +242,14 @@ const Team = () => {
                   ></i>
                   WhatsApp Us
                 </a>
-                <a
-                  href="/our-story"
-                  className="thm-btn"
-                  style={{ backgroundColor: "var(--thm-black)" }}
-                >
-                  Read Our Story
-                </a>
+                <Link href="/our-story">
+                  <a
+                    className="thm-btn"
+                    style={{ backgroundColor: "var(--thm-black)" }}
+                  >
+                    Read Our Story
+                  </a>
+                </Link>
               </div>
             </Col>
           </Row>

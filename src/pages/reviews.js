@@ -23,8 +23,8 @@ const Reviews = () => {
                   See What Travelers Say on Google
                 </h2>
                 <p style={{ marginTop: "20px", color: "var(--thm-gray)" }}>
-                  We're proud of our 5-star rating on Google! Check out reviews
-                  from hundreds of happy travelers.
+                  We&apos;re proud of our 5-star rating on Google! Check out
+                  reviews from hundreds of happy travelers.
                 </p>
               </div>
 
