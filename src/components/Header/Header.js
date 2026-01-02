@@ -46,7 +46,7 @@ const Header = ({ pageTitle }) => {
                 </div>
                 <div className="main-header__top-right-btn-box">
                   <a
-                    href="https://wa.me/919789905294"
+                    href="https://wa.me/919100228152"
                     className="thm-btn main-header__top-right-btn"
                   >
                     Plan Your Trip

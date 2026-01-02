@@ -99,7 +99,7 @@ const TourDetailsSidebar = () => {
 *Transportation:* ${transport}
 `;
 
-    const whatsappUrl = `https://wa.me/919789905294?text=${text}`;
+    const whatsappUrl = `https://wa.me/919100228152?text=${text}`;
 
     // Open in new tab
     window.open(whatsappUrl, "_blank");

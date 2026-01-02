@@ -98,7 +98,7 @@ const DestinationsDetailsRight = ({ data }) => {
 *Transportation:* ${transport}
 `;
 
-    const whatsappUrl = `https://wa.me/919789905294?text=${text}`;
+    const whatsappUrl = `https://wa.me/919100228152?text=${text}`;
     window.open(whatsappUrl, "_blank");
   };
 

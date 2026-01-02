@@ -4,7 +4,6 @@ import BrandTwo from "@/components/BrandTwo/BrandTwo";
 import CounterOne from "@/components/CounterOne/CounterOne";
 import Layout from "@/components/Layout/Layout";
 import PageHeader from "@/components/PageHeader/PageHeader";
-import TeamOne from "@/components/TeamOne/TeamOne";
 import TestimonialOne from "@/components/TestimonialOne/TestimonialOne";
 import VideoTwo from "@/components/VideoTwo/VideoTwo";
 import React from "react";
@@ -18,7 +17,6 @@ const About = () => {
       <TestimonialOne aboutPage />
       <VideoTwo />
       <CounterOne />
-      <TeamOne />
     </Layout>
   );
 };

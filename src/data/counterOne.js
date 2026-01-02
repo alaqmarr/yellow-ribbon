@@ -7,12 +7,12 @@ const counterOne = [
   {
     id: 2,
     text: "Destinations",
-    count: 60,
+    count: 69,
   },
   {
     id: 3,
     text: "Packages Offered",
-    count: 200,
+    count: 123,
   },
 ];
 

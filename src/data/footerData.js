@@ -1,20 +1,8 @@
 const logo = "/assets/images/resources/logo-1.png";
 const social = [
   {
-    icon: "fa-twitter",
-    link: "https://wa.me/919789905294?text=Hi,%20Yellow%20Ribbon%20Travels!",
-  },
-  {
-    icon: "fa-facebook-square",
-    link: "https://wa.me/919789905294?text=Hi,%20Yellow%20Ribbon%20Travels!",
-  },
-  {
-    icon: "fa-pinterest-p",
-    link: "https://wa.me/919789905294?text=Hi,%20Yellow%20Ribbon%20Travels!",
-  },
-  {
     icon: "fa-instagram",
-    link: "https://wa.me/919789905294?text=Hi,%20Yellow%20Ribbon%20Travels!",
+    link: "https://www.instagram.com/yellowribbon.travels?igsh=ZDFsbGlubDhiajl4",
   },
 ];
 
@@ -29,7 +17,7 @@ const footerData = {
     {
       id: 1,
       icon: "fas fa-phone-square-alt",
-      content: "+91 97899 05294",
+      content: "+91 91002 28152",
       subHref: "tel",
     },
     {
@@ -42,36 +30,21 @@ const footerData = {
       id: 3,
       icon: "fas fa-map-marker-alt",
       content: "Hyderabad, Telangana, India",
+      mapLink: "https://maps.app.goo.gl/2ppNdLWgYBscFnTM6",
     },
   ],
   companies: [
     { id: 1, link: "/about", title: "About Us" },
-    {
-      id: 2,
-      link: "/blogs",
-      title: "Blogs",
-    },
-    {
-      id: 3,
-      link: "/tours",
-      title: "Tours",
-    },
-    {
-      id: 4,
-      link: "/contact",
-      title: "Contact Us",
-    },
-    {
-      id: 5,
-      link: "/gallery",
-      title: "Gallery",
-    },
+    { id: 2, link: "/our-story", title: "Our Story" },
+    { id: 3, link: "/team", title: "Our Team" },
+    { id: 4, link: "/tours", title: "Tours" },
+    { id: 5, link: "/contact", title: "Contact Us" },
   ],
   explore: [
-    { id: 2, link: "/destinations", title: "Destinations" },
-    { id: 3, link: "/about", title: "About Us" },
-    { id: 4, link: "/contact", title: "Contact Us" },
-    { id: 5, link: "/gallery", title: "Gallery" },
+    { id: 1, link: "/destinations", title: "Destinations" },
+    { id: 2, link: "/gallery", title: "Gallery" },
+    { id: 3, link: "/reviews", title: "Reviews" },
+    { id: 4, link: "/team", title: "Our Team" },
   ],
 };
 

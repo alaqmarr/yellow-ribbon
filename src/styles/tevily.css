@@ -23,7 +23,7 @@
   --thm-gray: #787780;
   --thm-gray-rgb: 120, 119, 128;
   --thm-primary: #FCB53B;
-  --thm-primary-rgb: 232, 96, 76;
+  --thm-primary-rgb: 252, 181, 59;
   --thm-black: #313041;
   --thm-black-rgb: 49, 48, 65;
   --thm-base: #ffffff;
@@ -31,6 +31,11 @@
   --thm-clr-extra: #e3e3e3;
   --thm-border-radius: 8px;
   --thm-letter-spacing: -0.02em;
+  /* Light Blue Accent from Business Card */
+  --thm-blue: #8BD3E6;
+  --thm-blue-rgb: 139, 211, 230;
+  --thm-blue-light: #E8F6FA;
+  --thm-blue-medium: #C5E8F2;
 }
 
 .row {
@@ -47,6 +52,7 @@ body {
   font-size: 18px;
   line-height: 34px;
   font-weight: 400;
+  background-color: var(--thm-blue-light);
 }
 
 body.locked {
@@ -2946,16 +2952,16 @@ ul {
 
 .why-choose__container {
   position: relative;
-  display: block;
+  display: flex;
   width: 100%;
   overflow: hidden;
 }
 
 .why-choose__left {
   position: relative;
-  display: block;
-  float: left;
+  display: flex;
   width: 47%;
+  min-height: 600px;
 }
 
 .why-choose__left-bg {
@@ -2967,7 +2973,6 @@ ul {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  min-height: 764px;
 }
 
 .why-choose__toggle {
@@ -3012,12 +3017,13 @@ ul {
 
 .why-choose__right {
   position: relative;
-  display: block;
-  float: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 53%;
-  padding: 123px 0 108px;
+  padding: 80px 0 80px;
   background-color: var(--thm-black);
-  padding-left: 120px;
+  padding-left: 80px;
 }
 
 .why-choose__right-map {
@@ -7594,3 +7600,380 @@ ul {
   border-bottom: 0;
   border-top: 1px solid #ebe6de;
 }
+
+/*--------------------------------------------------------------
+# Blue Accent Backgrounds - Yellow Ribbon Theme
+--------------------------------------------------------------*/
+/* GLOBAL: All sections get blue background */
+section {
+  background-color: var(--thm-blue-light) !important;
+}
+
+/* Keep header white */
+.main-header,
+.main-header-one,
+.main-header-two,
+header {
+  background-color: #ffffff !important;
+}
+
+/* Footer stays dark */
+.main-footer,
+footer {
+  background: linear-gradient(180deg, var(--thm-black) 0%, #252432 100%) !important;
+}
+
+/* Page headers with blue gradient */
+.page-header {
+  background: linear-gradient(135deg, var(--thm-blue) 0%, var(--thm-blue-medium) 100%) !important;
+}
+
+/* Why Choose dark section stays dark */
+.why-choose__right {
+  background-color: var(--thm-black) !important;
+}
+
+/* Card backgrounds - white for contrast */
+.popular-tours__single,
+.destinations-one__single,
+.news-one__single,
+.services-one__single,
+.team-one__single,
+.testimonial-one__single {
+  background-color: #ffffff !important;
+  border-radius: 12px;
+}
+
+/* Card hover effects with blue shadow */
+.popular-tours__single:hover,
+.destinations-one__single:hover,
+.news-one__single:hover {
+  box-shadow: 0 15px 40px rgba(139, 211, 230, 0.5) !important;
+}
+
+/* Sidebar white */
+.tour-details-two__sidebar,
+.destinations-details__sidebar {
+  background-color: #ffffff !important;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(139, 211, 230, 0.2);
+}
+
+/* Form focus states with blue */
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--thm-blue) !important;
+  box-shadow: 0 0 0 3px rgba(139, 211, 230, 0.3) !important;
+  outline: none;
+}
+
+/* Scrollbar with blue accent */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--thm-primary), var(--thm-blue)) !important;
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--thm-blue);
+  color: var(--thm-black);
+}
+
+/* Mobile menu stays dark */
+.mobile-nav__wrapper,
+.mobile-nav__content {
+  background-color: var(--thm-black) !important;
+}
+
+/*--------------------------------------------------------------
+# Blog/News Card Fixes
+--------------------------------------------------------------*/
+.news-one__single {
+  background-color: #ffffff !important;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  margin-bottom: 30px;
+  transition: all 0.3s ease;
+}
+
+.news-one__single:hover {
+  box-shadow: 0 15px 40px rgba(139, 211, 230, 0.4);
+  transform: translateY(-5px);
+}
+
+.news-one__img {
+  position: relative;
+  overflow: hidden;
+}
+
+.news-one__img img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.news-one__content {
+  padding: 25px 20px;
+  background-color: #ffffff;
+}
+
+.news-one__meta {
+  margin-bottom: 12px;
+  padding: 0;
+}
+
+.news-one__meta li {
+  display: inline-block;
+}
+
+.news-one__meta li a {
+  font-size: 14px;
+  color: var(--thm-primary);
+}
+
+.news-one__title {
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 600;
+  margin: 0;
+}
+
+.news-one__title a {
+  color: var(--thm-black);
+}
+
+.news-one__title a:hover {
+  color: var(--thm-primary);
+}
+
+.news-one__date {
+  position: absolute;
+  bottom: 0;
+  right: 15px;
+  background-color: var(--thm-primary);
+  padding: 8px 12px;
+  border-radius: 4px 4px 0 0;
+}
+
+.news-one__date p {
+  margin: 0;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.news-one__date span {
+  display: inline;
+}
+
+/* News section spacing */
+.news-one {
+  padding: 80px 0;
+}
+
+.news-one__bottom {
+  margin-top: 30px;
+}
+
+/*--------------------------------------------------------------
+# CTA & Standout Sections - Yellow Background
+--------------------------------------------------------------*/
+.book-now,
+.cta-one,
+.cta-two,
+.video-one,
+.video-two,
+.why-choose {
+  background-color: var(--thm-primary) !important;
+}
+
+/* Ensure text is readable on yellow */
+.book-now h2,
+.book-now h3,
+.book-now p,
+.cta-one h2,
+.cta-one h3,
+.cta-one p,
+.video-one h2,
+.video-one h3 {
+  color: var(--thm-black);
+}
+
+/* Book Now section styling */
+.book-now__right {
+  background-color: rgba(255,255,255,0.15);
+  border-radius: 16px;
+  padding: 30px;
+}
+
+/*--------------------------------------------------------------
+# Our Story Page - Yellow Accents & Standout Styles
+--------------------------------------------------------------*/
+/* Our Story page hero section */
+.our-story-hero {
+  background: linear-gradient(135deg, var(--thm-primary) 0%, #f5a623 100%) !important;
+  padding: 80px 0 60px;
+}
+
+/* FIXED: All text on yellow hero must be dark */
+.our-story-hero h1 {
+  color: var(--thm-black) !important;
+}
+
+.our-story-hero p {
+  color: #1a1a1a !important;
+}
+
+.our-story-hero .section-title__tagline {
+  color: var(--thm-black) !important;
+}
+
+/* Timeline cards with yellow accents */
+.our-story-timeline-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  height: 100%;
+  border-left: 4px solid var(--thm-primary);
+  transition: all 0.3s ease;
+}
+
+.our-story-timeline-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(252, 181, 59, 0.3);
+}
+
+/* FIXED: Timeline card text darker */
+.our-story-timeline-card h4 {
+  color: var(--thm-black) !important;
+}
+
+.our-story-timeline-card p {
+  color: #333333 !important;
+}
+
+/* Year badge */
+.our-story-year-badge {
+  display: inline-block;
+  background-color: var(--thm-primary);
+  color: var(--thm-black) !important;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+/* Why Book section - dark background with yellow accents */
+.our-story-why-book {
+  background: linear-gradient(135deg, var(--thm-black) 0%, #1a1925 100%) !important;
+  padding: 80px 0;
+}
+
+.our-story-why-book h2 {
+  color: var(--thm-primary) !important;
+}
+
+.our-story-why-book li {
+  color: #ffffff !important;
+}
+
+.our-story-why-book li i {
+  color: var(--thm-primary) !important;
+}
+
+/* Quote section - yellow bg with dark text */
+.our-story-quote {
+  background: var(--thm-primary) !important;
+  padding: 80px 0;
+}
+
+/* FIXED: All quote text must be dark for readability */
+.our-story-quote h3 {
+  color: var(--thm-black) !important;
+  font-weight: 700;
+}
+
+.our-story-quote blockquote {
+  color: #1a1a1a !important;
+  font-style: italic;
+}
+
+.our-story-quote p {
+  color: var(--thm-black) !important;
+  font-weight: 600;
+}
+
+/* Team member cards */
+.our-story-team-card {
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  height: 100%;
+}
+
+.our-story-team-card:hover {
+  box-shadow: 0 15px 40px rgba(252, 181, 59, 0.35);
+  border-color: var(--thm-primary);
+}
+
+/* FIXED: Team card text - role should be dark, not yellow */
+.our-story-team-card h4 {
+  color: var(--thm-black) !important;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.our-story-team-card .team-role {
+  color: var(--thm-black) !important;
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.our-story-team-card p {
+  color: #333333 !important;
+  line-height: 1.7;
+}
+
+.our-story-team-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--thm-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 25px;
+  box-shadow: 0 10px 30px rgba(252, 181, 59, 0.4);
+}
+
+/* CTA at bottom - yellow with dark text */
+.our-story-cta {
+  background: var(--thm-primary) !important;
+  padding: 80px 0;
+}
+
+.our-story-cta h2,
+.our-story-cta p {
+  color: var(--thm-black) !important;
+}
+
+.our-story-cta .thm-btn {
+  background-color: var(--thm-black);
+  color: #fff;
+}
+
+
+
+
+
+

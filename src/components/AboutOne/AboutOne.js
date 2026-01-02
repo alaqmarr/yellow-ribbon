@@ -68,7 +68,7 @@ const AboutOne = () => {
                 ))}
               </ul>
               <a
-                href="https://wa.me/919789905294?text=Hi,%20Yellow%20Ribbon%20Travels!"
+                href="https://wa.me/919100228152?text=Hi,%20Yellow%20Ribbon%20Travels!"
                 className="about-one__btn thm-btn"
               >
                 Book with us now

@@ -9,12 +9,6 @@ const navItems = [
     subNavItems: [],
   },
   {
-    id: 1,
-    name: "Gallery",
-    href: "/gallery",
-    subNavItems: [],
-  },
-  {
     id: 2,
     name: "Destinations",
     href: "/destinations",
@@ -28,18 +22,36 @@ const navItems = [
   },
   {
     id: 4,
-    name: "About",
-    href: "/about ",
+    name: "Gallery",
+    href: "/gallery",
     subNavItems: [],
   },
   {
     id: 5,
-    name: "Blogs",
-    href: "/blogs",
+    name: "About",
+    href: "/about",
     subNavItems: [],
   },
   {
     id: 6,
+    name: "Our Story",
+    href: "/our-story",
+    subNavItems: [],
+  },
+  {
+    id: 7,
+    name: "Team",
+    href: "/team",
+    subNavItems: [],
+  },
+  {
+    id: 8,
+    name: "Reviews",
+    href: "/reviews",
+    subNavItems: [],
+  },
+  {
+    id: 9,
     name: "Contact",
     href: "/contact",
     subNavItems: [],
@@ -47,10 +59,10 @@ const navItems = [
 ];
 
 const social = [
-  { icon: "fa-facebook-square", link: "" },
-  { icon: "fa-twitter", link: "" },
-  { icon: "fa-instagram", link: "" },
-  { icon: "fa-pinterest-p", link: "" },
+  {
+    icon: "fa-instagram",
+    link: "https://www.instagram.com/yellowribbon.travels?igsh=ZDFsbGlubDhiajl4",
+  },
 ];
 
 const headerData = {
@@ -58,7 +70,7 @@ const headerData = {
     {
       id: 1,
       icon: "icon-phone-call",
-      content: "+91 97899 05294",
+      content: "+91 91002 28152",
       subHref: "tel",
     },
     {

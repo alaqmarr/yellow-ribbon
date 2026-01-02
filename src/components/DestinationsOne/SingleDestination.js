@@ -32,7 +32,7 @@ const SingleDestination = ({ destination = {} }) => {
             </h2>
           </div>
           <div className="destinations-one__button">
-            <a href="https://wa.me/919789905294?text=Hi,%20Yellow%20Ribbon%20Travels!">
+            <a href="https://wa.me/919100228152?text=Hi,%20Yellow%20Ribbon%20Travels!">
               {country}
             </a>
           </div>

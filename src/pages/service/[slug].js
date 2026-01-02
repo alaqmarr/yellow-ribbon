@@ -161,8 +161,8 @@ const ServiceDetails = ({ service }) => {
                       color: "#fff",
                     }}
                   >
-                    <a href="tel:9789905294" style={{ color: "#fff" }}>
-                      978 990 5294
+                    <a href="tel:9100228152" style={{ color: "#fff" }}>
+                      910 022 8152
                     </a>
                   </h2>
                 </div>

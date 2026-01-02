@@ -56,6 +56,50 @@ const AboutPage = () => {
                   </div>
                 ))}
               </div>
+              {/* BNI Badge & Social */}
+              <div
+                style={{
+                  marginTop: "30px",
+                  display: "flex",
+                  alignItems: "center",
+                  flexWrap: "wrap",
+                  gap: "20px",
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <Image
+                    src="/assets/images/resources/bni-logo.png"
+                    alt="BNI Member"
+                    style={{
+                      height: "50px",
+                      width: "auto",
+                      marginRight: "15px",
+                    }}
+                  />
+                  <span style={{ fontSize: "14px", color: "var(--thm-gray)" }}>
+                    Proud BNI Member
+                  </span>
+                </div>
+                <a
+                  href="https://www.instagram.com/yellowribbon.travels?igsh=ZDFsbGlubDhiajl4"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                    color: "var(--thm-primary)",
+                    fontSize: "14px",
+                    textDecoration: "none",
+                  }}
+                >
+                  <i
+                    className="fab fa-instagram"
+                    style={{ fontSize: "24px" }}
+                  ></i>
+                  Follow us on Instagram
+                </a>
+              </div>
             </div>
           </Col>
         </Row>

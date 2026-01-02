@@ -30,7 +30,7 @@ const SiteFooter = () => {
                   </div>
                   <p className="footer-widget__about-text">{about}</p>
                   <ul className="footer-widget__about-contact list-unstyled">
-                    {icons.map(({ id, icon, content, subHref }) => (
+                    {icons.map(({ id, icon, content, subHref, mapLink }) => (
                       <li key={id}>
                         <div className="icon">
                           <i className={icon}></i>
@@ -38,6 +38,14 @@ const SiteFooter = () => {
                         <div className="text">
                           {subHref ? (
                             <a href={`${subHref}:${content}`}>{content}</a>
+                          ) : mapLink ? (
+                            <a
+                              href={mapLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {content}
+                            </a>
                           ) : (
                             <p>{content}</p>
                           )}

@@ -73,7 +73,7 @@ const AboutTwo = () => {
                   </p>
                 ))}
                 <a
-                  href="https://wa.me/919789905294?text=Hi,%20Yellow%20Ribbon%20Travels!"
+                  href="https://wa.me/919100228152?text=Hi,%20Yellow%20Ribbon%20Travels!"
                   className="thm-btn about-two__btn"
                 >
                   Book with us now
