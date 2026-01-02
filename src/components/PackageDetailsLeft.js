@@ -77,11 +77,14 @@ const PackageDetailsLeft = ({ packageData }) => {
                   }`}
                 >
                   <div className="inner">
-                    <p>{description}</p>
+                    <p dangerouslySetInnerHTML={{ __html: description }}></p>
                     <ul className="list-unstyled">
                       {features > 0 ? (
                         features.map((item, index) => (
-                          <li key={index}>{item}</li>
+                          <li
+                            key={index}
+                            dangerouslySetInnerHTML={{ __html: item }}
+                          ></li>
                         ))
                       ) : (
                         <p></p>
