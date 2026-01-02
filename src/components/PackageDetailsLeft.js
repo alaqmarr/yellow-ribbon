@@ -12,6 +12,7 @@ const PackageDetailsLeft = ({ packageData }) => {
     itineraries,
     inclusions,
     exclusions,
+    about,
     type,
   } = packageData;
   const [active, setActive] = useState(1);
@@ -20,7 +21,14 @@ const PackageDetailsLeft = ({ packageData }) => {
     <div className="tour-details-two__left">
       <div className="tour-details-two__overview">
         <h3 className="tour-details-two__title">Overview</h3>
-        <p className="tour-details-two__overview-text">{name}</p>
+        <p
+          className="tour-details-two__overview-text"
+          dangerouslySetInnerHTML={{
+            __html: about
+              ? about
+              : "Unable to load the overview data at the moment.",
+          }}
+        ></p>
         <div className="tour-details-two__overview-bottom">
           <h3 className="tour-details-two-overview__title">Included/Exclude</h3>
           <div className="tour-details-two__overview-bottom-inner">
