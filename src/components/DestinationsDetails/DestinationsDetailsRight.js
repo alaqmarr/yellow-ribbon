@@ -175,11 +175,10 @@ const DestinationsDetailsRight = ({ data }) => {
             {places.map(({ id, image, name, description }) => (
               <li key={id}>
                 <div className="tour-details-two__last-minute-image">
-                  <Image src={`${image}`} alt="" />
+                  <img src={image} alt={name} />
                 </div>
                 <div className="tour-details-two__last-minute-content">
                   <h5>{name}</h5>
-                  <p>{description}</p>
                 </div>
               </li>
             ))}

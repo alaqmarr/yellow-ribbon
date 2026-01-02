@@ -133,6 +133,7 @@ ul {
   display: inline-block;
   vertical-align: middle;
   -webkit-appearance: none;
+  appearance: none;
   border: none;
   outline: none !important;
   background-color: var(--thm-primary);
@@ -5871,6 +5872,12 @@ ul {
   letter-spacing: 0.1em;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .tours-list__meta li:hover a {
@@ -7977,3 +7984,110 @@ select:focus {
 
 
 
+
+/* Sidebar Last Minute / Places to Visit Styling */
+.tour-details-two__last-minute-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.07);
+  transition: all 0.4s ease;
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,0.03);
+  height: 110px; /* Fixed height */
+}
+
+.tour-details-two__last-minute-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.tour-details-two__last-minute-image {
+  flex: 0 0 90px;
+  width: 90px;
+  height: 90px;
+  overflow: hidden;
+  border-radius: 10px;
+  position: relative;
+}
+
+.tour-details-two__last-minute-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.tour-details-two__last-minute-list li:hover .tour-details-two__last-minute-image img {
+  transform: scale(1.1);
+}
+
+.tour-details-two__last-minute-content {
+  padding: 0 20px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center horizontally */
+  height: 100%;
+}
+
+.tour-details-two__last-minute-content h5 {
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.3;
+  color: var(--thm-black);
+  transition: color 0.3s ease;
+  text-align: center; /* Ensure text alignment is centered if it wraps */
+}
+
+.tour-details-two__last-minute-list li:hover .tour-details-two__last-minute-content h5 {
+  color: var(--thm-primary);
+}
+
+.tour-details-two__last-minute-content p {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--thm-gray);
+  margin-top: 5px;
+  display: none; /* Ensuring description is hidden via CSS as well if markup exists */
+}
+
+/* Popular Tours Metadata Fix */
+.popular-tours__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #faf5ee;
+  border-radius: var(--thm-border-radius);
+  padding: 10px 20px;
+  margin-top: 20px;
+}
+
+.popular-tours__meta li {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.popular-tours__meta li a {
+  font-size: 13px;
+  color: var(--thm-gray);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 500ms ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100px; /* Enforce limits */
+  display: inline-block;
+}
+
+.popular-tours__meta li:hover a {
+  color: var(--thm-primary);
+}

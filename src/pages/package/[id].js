@@ -1,47 +1,60 @@
 import Layout from "@/components/Layout/Layout";
-import PackageDetails from "@/components/Package";
+import PageHeader from "@/components/PageHeader/PageHeader";
+import TourDetailsOne from "@/components/TourDetails/TourDetailsOne";
+import TourDetailsTwo from "@/components/TourDetails/TourDetailsTwo";
+import axios from "axios";
+import { useRouter } from "next/router";
 import React from "react";
 
-export async function getStaticPaths() {
-  // Fetch all package IDs from the API
-  const res = await fetch("https://api.yellowribbontravels.com/api/packages");
-  const packages = await res.json();
+const TourDetails = ({ packageDetails }) => {
+  const router = useRouter();
 
-  const paths = packages.map((pkg) => ({
-    params: { id: pkg.id.toString() },
-  }));
-
-  return {
-    paths,
-    fallback: "blocking", // allows on-demand ISR for new IDs
-  };
-}
-
-export async function getStaticProps({ params }) {
-  const res = await fetch(
-    `https://api.yellowribbontravels.com/api/packages/${params.id}`
-  );
-
-  if (!res.ok) {
-    return { notFound: true };
+  if (router.isFallback) {
+    return <h1>Loading...</h1>;
   }
 
-  const packageData = await res.json();
-
-  return {
-    props: { packageData },
-    revalidate: 60, // ISR every 1 minute
-  };
-}
-
-const TourDetails = ({ packageData }) => {
-  if (!packageData) return null;
-
   return (
-    <Layout pageTitle={packageData.name}>
-      <PackageDetails packageData={packageData} />
+    <Layout pageTitle={packageDetails?.name || "Package Details"}>
+      <PageHeader title={packageDetails?.name || "Package Details"} />
+      <TourDetailsOne tour={packageDetails} />
+      <TourDetailsTwo tour={packageDetails} />
     </Layout>
   );
 };
+
+export async function getStaticPaths() {
+  const res = await axios.get(
+    "https://api.yellowribbontravels.com/api/packages"
+  );
+  const packages = res.data;
+
+  const paths = packages.map((pkg) => ({
+    params: { id: pkg.id },
+  }));
+
+  return { paths, fallback: true };
+}
+
+export async function getStaticProps({ params }) {
+  const { id } = params;
+  const res = await axios.get(
+    "https://api.yellowribbontravels.com/api/packages"
+  );
+  const packages = res.data;
+  const packageDetails = packages.find((pkg) => pkg.id === id);
+
+  if (!packageDetails) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      packageDetails,
+    },
+    revalidate: 60,
+  };
+}
 
 export default TourDetails;

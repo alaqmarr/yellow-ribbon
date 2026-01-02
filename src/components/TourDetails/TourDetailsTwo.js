@@ -3,16 +3,16 @@ import { Col, Container, Row } from "react-bootstrap";
 import PackageDetailsLeft from "../PackageDetailsLeft";
 import PackageDetailsSidebar from "../PackageDetailsSidebar";
 
-const TourDetailsTwo = ({ packageData }) => {
+const TourDetailsTwo = ({ tour }) => {
   return (
     <section className="tour-details-two">
       <Container>
         <Row>
           <Col xl={8} lg={7}>
-            <PackageDetailsLeft packageData={packageData} />
+            <PackageDetailsLeft packageData={tour} />
           </Col>
           <Col xl={4} lg={5}>
-            <PackageDetailsSidebar packageData={packageData} />
+            <PackageDetailsSidebar packageData={tour} />
           </Col>
         </Row>
       </Container>

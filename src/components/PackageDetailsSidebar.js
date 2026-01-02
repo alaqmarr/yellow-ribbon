@@ -76,7 +76,7 @@ const customStyle = {
   }),
 };
 
-const PackageDetailsSidebar = ({ packageData }) => {
+const PackageDetailsSidebar = ({ packageData: tour }) => {
   const [transport, setTransport] = useState("Self");
   const [passengers, setPassengers] = useState(1);
   const [startDate, setStartDate] = useState(new Date());

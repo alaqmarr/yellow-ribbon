@@ -30,10 +30,22 @@ const SingleTour = ({ tour = {}, userSelect = false }) => {
               <Link href={`/package/${id}`}>{days + "D/" + nights + "N"}</Link>
             </li>
             <li>
-              <Link href={`/package/${id}`}>{location ? location : "N/A"}</Link>
+              <Link href={`/package/${id}`}>
+                {location
+                  ? location.length > 20
+                    ? location.substring(0, 20) + "..."
+                    : location
+                  : "N/A"}
+              </Link>
             </li>
             <li>
-              <Link href={`/package/${id}`}>{type ? type : "N/A"}</Link>
+              <Link href={`/package/${id}`}>
+                {type
+                  ? type.length > 20
+                    ? type.substring(0, 20) + "..."
+                    : type
+                  : "N/A"}
+              </Link>
             </li>
           </ul>
         </div>

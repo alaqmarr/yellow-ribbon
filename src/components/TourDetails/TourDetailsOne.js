@@ -3,7 +3,7 @@ import { tourDetailsOne } from "@/data/tourDetailsPage";
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 
-const TourDetailsOne = ({ packageData }) => {
+const TourDetailsOne = ({ tour }) => {
   const {
     id,
     name,
@@ -16,7 +16,7 @@ const TourDetailsOne = ({ packageData }) => {
     inclusions,
     exclusions,
     type,
-  } = packageData;
+  } = tour;
   return (
     <section className="tour-details">
       <div className="tour-details__top">
