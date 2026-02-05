@@ -11,31 +11,37 @@ const NavItem = ({ navItem = {} }) => {
 
   return (
     <li className={`dropdown${current ? " current" : ""}`}>
-          <Link href={href}>
-            <a href={href}>{name}</a>
-          </Link>
-          <ul>
-            {subNavItems.map((subItem) => (
-              <li
-                className={subItem.subItems?.length ? "dropdown" : ""}
-                key={subItem.id}
-              >
-                <Link href={subItem.href}>
-                  <a href={href}>{subItem.name}</a>
-                </Link>
-                <ul>
-                  {subItem.subItems?.map((item) => (
-                    <li key={item.id}>
-                      <Link href={item.href}>
-                        <a href={href}>{item.name}</a>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </li>
-            ))}
-          </ul>
-        </li>
+      {href.startsWith("http") ? (
+        <a href={href} target="_blank" rel="noreferrer">
+          {name}
+        </a>
+      ) : (
+        <Link href={href}>
+          <a href={href}>{name}</a>
+        </Link>
+      )}
+      <ul>
+        {subNavItems.map((subItem) => (
+          <li
+            className={subItem.subItems?.length ? "dropdown" : ""}
+            key={subItem.id}
+          >
+            <Link href={subItem.href}>
+              <a href={href}>{subItem.name}</a>
+            </Link>
+            <ul>
+              {subItem.subItems?.map((item) => (
+                <li key={item.id}>
+                  <Link href={item.href}>
+                    <a href={href}>{item.name}</a>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ul>
+    </li>
   );
 };
 

@@ -92,6 +92,7 @@ Their first destination after marriage? Egypt — and that's where their story t
   teamMembers: [
     {
       name: "Rukaiya",
+      image: "/rukaiya.jpeg",
       role: "Founder & Travel Expert",
       description:
         "With a B.A. in Travel & Tourism and hands-on experience at IndiGo, Jet Airways, VFS, and leading travel agencies, Rukaiya brings unmatched expertise to every itinerary. Her passion for crafting unique travel experiences is the heart of Yellow Ribbon Travels.",
@@ -100,6 +101,7 @@ Their first destination after marriage? Egypt — and that's where their story t
     },
     {
       name: "Yusuf",
+      image: "/yusuf.jpeg",
       role: "Co-Founder & Entrepreneur",
       description:
         "The visionary behind Yellow Ribbon Travels, Yusuf brings entrepreneurial spirit and unwavering support. He surprised Rukaiya with the business on their wedding day, turning a shared dream into reality.",
@@ -325,10 +327,16 @@ const OurTeam = () => {
               <Col md={6} lg={5} key={index} style={{ marginBottom: "30px" }}>
                 <div className="our-story-team-card">
                   <div className="our-story-team-avatar">
-                    <i
-                      className="fa fa-user"
-                      style={{ fontSize: "40px", color: "#fff" }}
-                    ></i>
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        borderRadius: "50%",
+                      }}
+                    />
                   </div>
                   <h4
                     style={{

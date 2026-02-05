@@ -7,6 +7,7 @@ import { Col, Container, Row, Image } from "react-bootstrap";
 const teamMembers = [
   {
     name: "Rukaiya",
+    image: "/rukaiya.jpeg",
     role: "Founder & Travel Expert",
     description:
       "With a B.A. in Travel & Tourism and hands-on experience at IndiGo, Jet Airways, VFS, and leading travel agencies, Rukaiya brings unmatched expertise to every itinerary. Her passion for crafting unique travel experiences is the heart of Yellow Ribbon Travels.",
@@ -20,6 +21,7 @@ const teamMembers = [
   },
   {
     name: "Yusuf",
+    image: "/yusuf.jpeg",
     role: "Co-Founder & Entrepreneur",
     description:
       "The visionary behind Yellow Ribbon Travels, Yusuf brings entrepreneurial spirit and unwavering support. He surprised Rukaiya with the business on their wedding day in July 2017, turning a shared dream into reality.",
@@ -88,21 +90,24 @@ const Team = () => {
                   {/* Avatar */}
                   <div
                     style={{
-                      width: "120px",
-                      height: "120px",
+                      width: "150px",
+                      height: "150px",
                       borderRadius: "50%",
-                      background: "var(--thm-primary)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
+                      overflow: "hidden",
                       margin: "0 auto 25px",
                       boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+                      border: "5px solid #fff",
                     }}
                   >
-                    <i
-                      className="fa fa-user"
-                      style={{ fontSize: "50px", color: "#fff" }}
-                    ></i>
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                      }}
+                    />
                   </div>
 
                   {/* Name & Role */}

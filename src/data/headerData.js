@@ -9,6 +9,12 @@ const navItems = [
     subNavItems: [],
   },
   {
+    id: 99, // Interjected item
+    name: "Flight Booking",
+    href: "https://wa.me/919100228152?text=Hi,%20I%20would%20like%20to%20book%20a%20flight!",
+    subNavItems: [],
+  },
+  {
     id: 2,
     name: "Destinations",
     href: "/destinations",
@@ -48,6 +54,12 @@ const navItems = [
     id: 8,
     name: "Reviews",
     href: "/reviews",
+    subNavItems: [],
+  },
+  {
+    id: 10,
+    name: "Blogs",
+    href: "/news",
     subNavItems: [],
   },
   {

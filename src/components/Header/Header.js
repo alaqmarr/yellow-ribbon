@@ -30,6 +30,20 @@ const Header = ({ pageTitle }) => {
                     </div>
                     <div className="text">
                       <a href={`${subHref}:${content}`}>{content}</a>
+                      {icon === "icon-at" && (
+                        <Image
+                          src="/assets/images/resources/bni-logo.png"
+                          alt="BNI"
+                          style={{
+                            height: "30px",
+                            marginLeft: "15px",
+                            verticalAlign: "middle",
+                            backgroundColor: "white", // BNI usually has white bg, safety
+                            padding: "2px",
+                            borderRadius: "4px",
+                          }}
+                        />
+                      )}
                     </div>
                   </li>
                 ))}

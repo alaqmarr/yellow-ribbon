@@ -37,11 +37,13 @@ const WhyChoose = () => {
             </div>
             <p className="why-choose__right-text">{description}</p>
             <ul className="list-unstyled why-choose__list">
-              {lists.map((list) => (
+              {lists.map((list, index) => (
                 <li key={list.id}>
-                  <div className="icon">
-                    <span className={list.icon}></span>
-                  </div>
+                  {index > 2 && (
+                    <div className="icon">
+                      <span className={list.icon}></span>
+                    </div>
+                  )}
                   <div className="text">
                     <h4>{list.title}</h4>
                     <p>{list.description}</p>

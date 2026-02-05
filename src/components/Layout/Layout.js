@@ -7,6 +7,8 @@ import MobileMenu from "@/components/MobileMenu/MobileMenu";
 import Search from "@/components/Search/Search";
 import SiteFooter from "@/components/SiteFooter/SiteFooter";
 
+import WelcomeModal from "@/components/WelcomeModal/WelcomeModal";
+
 const Layout = ({ children, pageTitle }) => {
   const [loading, setLoading] = useState(true);
   const { menuStatus } = useRootContext();
@@ -26,6 +28,7 @@ const Layout = ({ children, pageTitle }) => {
         <title>{pageTitle} | Yellow Ribbon Travels</title>
       </Head>
       <Preloader loading={loading} />
+      <WelcomeModal />
       <main style={{ opacity: loading ? 0 : 1 }} className="page-wrapper">
         <Header pageTitle={pageTitle} />
         {children}

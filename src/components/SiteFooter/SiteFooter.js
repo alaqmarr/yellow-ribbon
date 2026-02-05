@@ -36,7 +36,66 @@ const SiteFooter = () => {
                           <i className={icon}></i>
                         </div>
                         <div className="text">
-                          {subHref ? (
+                          {typeof content === "object" ? (
+                            <div className="footer-address-container">
+                              <strong
+                                style={{
+                                  display: "block",
+                                  marginBottom: "5px",
+                                  color: "var(--tevily-base)",
+                                }}
+                              >
+                                Head Office:
+                              </strong>
+                              <p
+                                style={{
+                                  whiteSpace: "pre-line",
+                                  marginBottom: "15px",
+                                }}
+                              >
+                                {content.headOffice}
+                              </p>
+                              <strong
+                                style={{
+                                  display: "block",
+                                  marginBottom: "5px",
+                                  color: "var(--tevily-base)",
+                                }}
+                              >
+                                Branches:
+                              </strong>
+                              <ul
+                                style={{
+                                  listStyleType: "none",
+                                  paddingLeft: 0,
+                                  margin: 0,
+                                  display: "grid",
+                                  gridTemplateColumns: "1fr 1fr",
+                                  gap: "10px",
+                                }}
+                              >
+                                {content.branches.map((branch, index) => (
+                                  <li
+                                    key={index}
+                                    style={{
+                                      fontSize: "13px",
+                                      lineHeight: "1.4em",
+                                      backgroundColor:
+                                        "rgba(255, 255, 255, 0.1)",
+                                      padding: "10px",
+                                      borderRadius: "5px",
+                                      border:
+                                        "1px solid rgba(255, 255, 255, 0.2)",
+                                      height: "100%", // Ensure equal height in grid
+                                      alignContent: "center",
+                                    }}
+                                  >
+                                    {branch}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          ) : subHref ? (
                             <a href={`${subHref}:${content}`}>{content}</a>
                           ) : mapLink ? (
                             <a
@@ -47,7 +106,7 @@ const SiteFooter = () => {
                               {content}
                             </a>
                           ) : (
-                            <p>{content}</p>
+                            <p style={{ whiteSpace: "pre-line" }}>{content}</p>
                           )}
                         </div>
                       </li>

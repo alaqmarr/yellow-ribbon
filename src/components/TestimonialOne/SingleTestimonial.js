@@ -6,7 +6,7 @@ const SingleTestimonial = ({ testimonial }) => {
     image,
     description,
     review,
-    client: { name, role },
+    client: { name, residence },
   } = testimonial;
 
   return (
@@ -21,7 +21,9 @@ const SingleTestimonial = ({ testimonial }) => {
           <p className="testimonial-one__text">{description}</p>
           <div className="testimonial-one__client-info">
             <h3 className="testimonial-one__client-name">{name}</h3>
-            <p className="testimonial-one__client-title">{role}</p>
+            {residence && (
+              <p className="testimonial-one__client-title">{residence}</p>
+            )}
           </div>
         </div>
       </div>

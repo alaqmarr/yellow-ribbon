@@ -450,7 +450,7 @@ ul {
   float: left;
   padding-top: 32px;
   padding-bottom: 31.5px;
-  margin-right: 150px;
+  margin-right: 40px;
 }
 
 .main-menu-wrapper__main-menu {
@@ -530,7 +530,7 @@ ul {
 
 .main-menu .main-menu__list > li + li,
 .stricky-header .main-menu__list > li + li {
-  margin-left: 54px;
+  margin-left: 20px;
 }
 
 .main-menu .main-menu__list > li > a,

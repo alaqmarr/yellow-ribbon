@@ -1,4 +1,4 @@
-const bg = '/assets/images/shapes/team-one-map.png';
+const bg = "/assets/images/shapes/team-one-map.png";
 
 const teamOne = {
   bg,
@@ -7,7 +7,7 @@ const teamOne = {
   teams: [
     {
       id: 1,
-      image: "https://res.cloudinary.com/deqt5y5sk/image/upload/v1765519723/IMG-20251122-WA0058_mqpibu.jpg",
+      image: "/rukaiya.jpeg",
       name: "Rukaiya Rangoonwala",
       title: "Co Founder & CEO",
       socials: [
@@ -18,7 +18,7 @@ const teamOne = {
     },
     {
       id: 2,
-      image: "https://res.cloudinary.com/deqt5y5sk/image/upload/v1765519723/IMG-20251122-WA0057_rqphbd.jpg",
+      image: "/yusuf.jpeg",
       name: "Yusuf Rangoonwala",
       title: "Co Founder & COO",
       socials: [
