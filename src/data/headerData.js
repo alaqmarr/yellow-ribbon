@@ -59,7 +59,7 @@ const navItems = [
   {
     id: 10,
     name: "Blogs",
-    href: "/news",
+    href: "/blogs",
     subNavItems: [],
   },
   {
