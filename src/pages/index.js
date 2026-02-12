@@ -26,7 +26,7 @@ const Home = ({ packages, destinations, blogs }) => {
       <PopularTours data={packages} />
       {/* <VideoOne /> */}
       <DestinationsTwo />
-      <TestimonialOne />
+      {/* <TestimonialOne /> */}
       {/* <GalleryOne /> */}
       <WhyChoose />
       <ServicesOne />
